@@ -1,6 +1,6 @@
 #    """Given a data frame 'df' and a column name 'column' - - return the mean of the specified column."""
 def column_mean(df, column):
-    x=mean(df[column])
+    x=df[column].mean()
     return x
 
 #    """Given a data frame 'df' and an integer 'x' -- return the xth row of the DataFrame."""
