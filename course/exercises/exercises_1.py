@@ -51,14 +51,11 @@ def string_length(s):
     return length
 
 
-
 ###    """Return a list of unique elements from 'lst'."""
 def unique_elements(lst):
     unique = list(set(lst))
     return unique
   
-
-
 
 ###    """Return a new dictionary with keys and values of 'd' swapped."""
 def swap_dict(d):
