@@ -1,4 +1,5 @@
-library(reticulate)
+install.packages("reticulate")
+library("reticulate")
 ENV_NAME <- "python-exercises"
 envs <- conda_list()
 target <- envs[envs$name == ENV_NAME, ]
