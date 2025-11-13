@@ -93,4 +93,3 @@ def test_unique_elements(lst, expected):
 ])
 def test_swap_dict(d, expected):
     assert swap_dict(d) == expected
-
