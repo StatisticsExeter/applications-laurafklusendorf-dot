@@ -8,31 +8,33 @@ import plotly.express as px
 def plot_scatter(df, x_name, y_name):
     """Given a dataframe containing numeric columns specified by x_name and y_name
     return a plotly express scatterplot"""
-    graph = px.scatter(df,x=x_name, y=y_name)
+    graph = px.scatter(df, x=x_name, y=y_name)
     return graph
 
 
 def calculate_correlation(df, x1, x2):
     """Given a dataframe containing numeric columns specified by x_name and y_name
-    return two objects (numbers), the first is the pearson correlation coefficient, the second 
+    return two objects (numbers), the first is the pearson correlation coefficient, the second
     the significance of this estimate"""
-    coe_value = stats.pearsonr(df[x1],df[x2])
-    return coe_value
+    coef, p_value = pearsonr(df[x1], df[x2])
+    return coef, p_value
 
 
 def fit_regression(df, x_name, y_name):
     """Given a dataframe containing numeric columns specified by x_name and y_name
     return the stats models OLS fit of a regression model of y on x"""
-    model = sm.OLS(y_name,x_name).fit()
-    return model.summary()
+    x = df[x_name]
+    y = df[y_name]
+    model = sm.OLS(y, x).fit()
+    return model
 
 
 def filter_data(df, year):
     """Given a dataframe of various rows including a column 'Year' and an integer year
     return a dataframe containing only those rows where the value in this column is less
     than the value of the supplied year"""
-    filt_data=df["Year"]<year
-    return filt_data
+    filtered = df[df["Year"] < year]
+    return filtered
 
 
 def tyler_viglen():
