@@ -31,7 +31,8 @@ def filter_data(df, year):
     """Given a dataframe of various rows including a column 'Year' and an integer year
     return a dataframe containing only those rows where the value in this column is less
     than the value of the supplied year"""
-    return 0
+    filt_data=df["Year"]<year
+    return filt_data
 
 
 def tyler_viglen():
