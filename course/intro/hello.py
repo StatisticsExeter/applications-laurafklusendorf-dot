@@ -1,6 +1,6 @@
 def greet():
     """Write a function that PRINTS 'Hello, World!'"""
-    return print('Hello, Laura!')
+    return print('Hello, Laura new laptop!')
 
 
 def add_two_numbers(a, b):
