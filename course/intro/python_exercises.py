@@ -1,3 +1,6 @@
+import numpy as np
+
+
 def sum_list(numbers):
     """Given a list of integers 'numbers'
     return the sum of this list."""
@@ -32,20 +35,22 @@ def get_fifth_row(df):
 def column_mean(df, column):
     """Given a dataframe 'df' and the name of a column 'column'
     return the mean of the specified column in a pandas DataFrame."""
-    return df[column]
+    avg = np.mean(df[column])
+    return avg
 
 
 def lookup_key(d, key):
     """Given a dictionary 'd' and a key 'key'
     return the value associated with the key in the dictionary."""
-    value = d[key]
-    return value
+    return d.get(key)
 
 
 def count_occurrences(lst):
     """Given a list 'lst'
     return a dictionary with counts of each unique element in the list."""
-    freq = Counter(lst)
+    freq = {}
+    for item in lst:
+        freq[item] = freq.get(item, 0) + 1
     return freq
 
 
@@ -59,5 +64,5 @@ def drop_missing(df):
 def value_counts_df(df, column):
     """Given a dataframe 'df' with various columns and the name of one of those columns 'column',
     return a DataFrame with value counts of the specified column."""
-    count = df.count(column)
-    return count
+    counts = df[column].value_counts().reset_index()
+    return counts
