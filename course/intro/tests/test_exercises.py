@@ -1,6 +1,6 @@
 import pytest
 import pandas as pd
-from numpy import nan
+from numpy import nan 
 from ..python_exercises import (
   sum_list, max_value, reverse_string, filter_even, get_fifth_row, column_mean,
   lookup_key, count_occurrences, list_to_string, parse_date)
