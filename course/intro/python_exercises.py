@@ -56,7 +56,7 @@ def count_occurrences(lst):
 
 def drop_missing(df):
     """Given a dataframe 'df' with some rows containing missing values,
-    return a DataFrame with rows containing missing values removed."""
+    return a DataFrame with rows containing missing values removed. change"""
     df_new = df.dropna()
     return df_new
 
