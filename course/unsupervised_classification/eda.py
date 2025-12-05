@@ -19,5 +19,6 @@ def _scatter(df, title):
     """When called with dataframe 'df' and a string 'title'
     Return a plotlty express object which is a scatterplot of all numeric variables
     in the dataframe. The title should be as provided in the function call"""
-    
-    return 0
+    numbers_df = df.select_dtypes(include="number")
+    scatter_plot = px.scatter_matrix(numbers_df, title=title)
+    return scatter_plot
