@@ -62,8 +62,8 @@ def _pca(df):
     """Given a dataframe of only suitable variables
     return a dataframe of the first two pca predictions (z values) with columns 'PC1' and 'PC2'"""
     values = PCA(n_components=2)
-    values= values.fit_transform(df)
-    data_df= pd.DataFrame(data = values, columns = ['PC1', 'PC2'])
+    values = values.fit_transform(df)
+    data_df = pd.DataFrame(data=values, columns=['PC1', 'PC2'])
     return data_df
 
 
@@ -72,5 +72,9 @@ def _scatter_clusters(df):
       (the first two principal component projections and the cluster groups)
     return a plotly express scatterplot of PC1 versus PC2
     with marks to denote cluster group membership"""
-    PC_scatter = px.scatter(df, x="PC1", y="PC2", color="cluster", title='PCA Scatter Plot Colored by Cluster Labels')
+    PC_scatter = px.scatter(df,
+                            x="PC1",
+                            y="PC2",
+                            color="cluster",
+                            title='PCA Scatter Plot Colored by Cluster Labels')
     return PC_scatter
