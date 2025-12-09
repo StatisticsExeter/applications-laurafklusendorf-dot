@@ -65,7 +65,6 @@ def task_regression():
     }
 
 
-
 def task_scatterplot():
     def scatterplot():
         df = pd.read_csv('course/intro/cache/filtered_data.csv')
