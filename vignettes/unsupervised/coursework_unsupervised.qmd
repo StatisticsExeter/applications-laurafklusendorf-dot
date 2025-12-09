@@ -9,7 +9,7 @@ format:
 
 ## Your task
 
-This material is provided as context to the problem. You should rewrite it as you see fit.  IN particular, you should demonstrate you understand why we are undertaking a cluster analysis, and what the various methods are telling us.  In particular, you should explain how principal components helps us visualise the results of the clustering.
+This material is provided as context to the problem. You should rewrite it as you see fit.  In particular, you should demonstrate you understand why we are undertaking a cluster analysis, and what the various methods are telling us.  In particular, you should explain how principal components helps us visualize the results of the clustering.
 
 
 ## The Problem
@@ -55,27 +55,32 @@ Some previous cluster analysis work has been reported at:
 
 ## The Data
 
-The first thing we can do is consider a scatterplot of the data
+In order to get an idea of what the data is about, a matrix scatter plot was  produced. Each of the chosen sub-type of collisions has been calculated into normalized proportions. Specifically the data for slight injuries, urban setting, dry weather, night time (dark), raining, accidents occurred at a roundabout, and the total number of data points that were collected have been used in this graphic. 
 
 ![](../../data_cache/vignettes/unsupervised_classification/scatterplot.html){width="100%" height="600px"}
 
-We are going to use the proportion of each subtype of collision that was reported, and rescale the variables.
+The positive relationships within the plot means that there is a positive correlation and those conditions together creates a larger probability of the accident to occur. For example when it is raining and dark out where slippery roads and visibility is at it's lowest. 
+
+Whereas a negative relationship means that those events are more mutually exclusive. For example, accidents when the weather is dry versus when it is raining has a negatively linear relationship.
+
 
 
 ## Hierarchical clustering
 
 
-The first task is to perform hierarchical clustering.
+Hierarchical clustering is a great starting point because it can group similar data points together without having to pre-specify the groupings. Here there is one main "trunk" and then four branches.
 
 ![](../../data_cache/vignettes/unsupervised_classification/dendrogram.html){width="100%" height="600px"}
 
 
-You need to select a suitable ``cut-point'' and cut the tree at an appropriate height to form a number of clusters.
+The tree was cut at a certain height or "cut-off" point was selected to further break down the dendrogram graph. This is important for Principal Component Analysis (PCA). PCA is a highly useful tool where is an take a large amount of data and take the most important parts. Where the first principal component (PC1) is the direction in which the data points have the most amount of variance. The second principal component (PC2) takes into account the second most variance while still be not correlated with PC1. Since PC2 is uncorrelated to PC1, this means that it is perpendicular. 
 
-To aid visualisation of results, you should plot the cluster membership on a scatterplot of the first two principal components.
+Here is a scatterplot between PC1 and PC2. Where the direction and length of the plot 
 
 
-![](../../data_cache/vignettes/unsupervised_classification/kscatter.html){width="100%" height="600px"}
+<iframe src="../../data_cache/vignettes/unsupervised_classification/hscatter.html"
+        width="100%" height="600px"></iframe>
+
 
 
 ## kmeans clustering
