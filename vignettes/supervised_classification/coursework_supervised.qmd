@@ -7,10 +7,6 @@ format:
 
 ---
 
-## Your task
-
-This material is provided as context to the problem. You should rewrite it as you see fit.
-
 ## The Problem
 
 Data on [Energy Certificates](https://epc.opendatacommunities.org/) were downloaded in March 2025. These certificates are a non-random sample of UK housing, and contain information such as:
@@ -36,14 +32,13 @@ In reducing the carbon footprint of UK housing, it is important to develop a str
 
 ## The Data
 
-A very simple preview of the data is given below:
+First, a preview of the data is great because it provides and basic overview of that type of variables and see the size of the data. Below is a table detailing the amount of data points for each group, houses built before and after 1930.
 
 ```{python}
 #| echo: false
 import pandas as pd
 ```
 
-And a clumsy presentation of some group summary statistics:
 
 
 ```{python}
@@ -53,7 +48,7 @@ df = pd.read_csv('../../data_cache/vignettes/supervised_classification/frequenci
 print(df.round(3).to_markdown(index=False))
 ```
 
-
+Below is a more clunky version of the summary statistics. 
 
 ```{python}
 #| echo: false
@@ -62,7 +57,7 @@ df = pd.read_csv('../../data_cache/vignettes/supervised_classification/grouped_s
 print(df.round(3).to_markdown(index=False))
 ```
 
-It is always useful to view a scatterplot of the data, marking the two known groups
+It is always useful to view a scatter plot of the data, marking the two known groups where the points in red are homes built after the 1930 and the blue points are homes built before then. 
 
 
 ![](../../data_cache/vignettes/supervised_classification/scatterplot.html){width="100%" height="600px"}
