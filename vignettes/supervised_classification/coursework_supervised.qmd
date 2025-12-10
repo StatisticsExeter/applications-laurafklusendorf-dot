@@ -115,11 +115,11 @@ print(df.round(3).to_markdown(index=False))
 
 The Receiver Operating Characteristic or ROC curve is a model that determines how reliable the model is at differentiating between two classifiers. True Positive Rate (TPR) is the proportion of how many times the model is correct in identifying a positive case as such. Conversely, False Positive Rate (FPR) is the proportion of cases that are negative but where identified as positive. 
 
-The Area Under the Curve (ACU) is an index that determines how well the model is. The scale goes from 0-1 where 1 is perfect and 0.5 is random and anything less than 0.5 is worse than truly random.
+The Area Under the Curve (ACU) is an index that determines how well the model is. The scale goes from 0-1 where 1 is perfect and 0.5 is random and anything less than 0.5 is worse than if the model was truly random.
 
 ![](../../data_cache/vignettes/supervised_classification/roc.html){width="100%" height="600px"}
 
-Here it can be seen that the performance of the LDA classifier has an AUC of 0.19 and the QDA classifier as a AUC of 0.21. This means that both of these models are worse at separating between the two groups than if the model was truly random. However QDA is slightly better.
+Here it can be seen that the performance of the LDA classifier has an AUC of 0.81 and the QDA classifier as a AUC of 0.79. Both of these models are fairly good, however the LDA is slightly better. 
 
 
 
