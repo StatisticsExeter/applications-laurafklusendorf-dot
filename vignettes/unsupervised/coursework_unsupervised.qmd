@@ -6,13 +6,14 @@ format:
     embed-resources: true
 
 ----
+## Introduction
 
-## Your task
+### The Task
 
 This material is provided as context to the problem. You should rewrite it as you see fit.  In particular, you should demonstrate you understand why we are undertaking a cluster analysis, and what the various methods are telling us.  In particular, you should explain how principal components helps us visualize the results of the clustering.
 
 
-## The Problem
+### The Problem
 
 Police recorded data in Great Britain is called "Stats19" and is available at <https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-accidents-safety-data>.  These data are typically split into three linked tables:
 
@@ -65,7 +66,7 @@ Whereas a negative relationship means that those events are more mutually exclus
 
 
 
-## Hierarchical clustering
+## Hierarchical Clustering
 
 
 Hierarchical clustering is a great starting point because it can group similar data points together without having to pre-specify the groupings. Here there is one main "trunk" and then four branches.
@@ -83,7 +84,7 @@ Here is a scatterplot between PC1 and PC2. Where the direction and length of the
 
 
 
-## kmeans clustering
+## kmeans Clustering
 
 
 The second task is to perform k-means clustering. You should select an appropriate number of clusters.
