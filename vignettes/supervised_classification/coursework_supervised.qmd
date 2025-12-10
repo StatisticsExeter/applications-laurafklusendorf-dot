@@ -87,22 +87,18 @@ df.rename(columns={"Unnamed: 0": "Category"}, inplace=True)
 print(df.round(3).to_markdown(index=False))
 ```
 
-You should comment on these results. You may wish to add an interpretation of the coefficients of these classifiers.  Or there may be other metrics (confusion matrix) that you think should be presented.
+Precision relates to how many positives the model was able to correctly identify. This does not take into account the number of false positives. 
 
-A confusion matrix for LDA and QDA is a great why to compare the two models on their accuracy, precision, and recall. 
+Recall relates to the sensitivity of the model and determines how many positives there actually are. 
 
-```{python}
-#| echo: false
-#| results: 'asis'
-df_lda = pd.read_csv('../../data_cache/vignettes/supervised_classification/lda.csv')
-df_qda = pd.read_csv('../../data_cache/vignettes/supervised_classification/qda.csv')
-df_lda.rename(columns={"Unnamed: 0": "Category"}, inplace=True)
-df_qda.rename(columns={"Unnamed: 0": "Category"}, inplace=True)
-# Merge predictions by Category
-df = df_lda.merge(df_qda, on="Category", suffixes=("_lda", "_qda"))
+F1-Score
 
-print(df.head())
-```
+Support
+
+The confusion matrices below allow for a better visualization of how well each model works. 
+
+![](../../data_cache/vignettes/supervised_classification/confusion_matrix_LDA.html){width="100%" height="600px"}
+![](../../data_cache/vignettes/supervised_classification/confusion_matrix_QDA.html){width="100%" height="600px"}
 
 
 ## ROC curve (and AUC) for two simple classifiers
