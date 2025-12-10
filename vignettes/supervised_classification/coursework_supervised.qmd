@@ -74,8 +74,9 @@ For more marks, you may wish to extend this EDA section slightly.  We can extrac
 
 ## Fitting LDA and QDA classifiers
 
-The simplest classifiers we could apply are Linear and Quadratic Discriminant analysis.
+The simplest classifiers we could apply are Linear and Quadratic Discriminant analysis (LDA and QDA respectively).
 
+### Results from fitting a linear discriminant analysis
 
 ```{python}
 #| echo: false
@@ -96,6 +97,18 @@ print(df.round(3).to_markdown(index=False))
 ```
 
 You should comment on these results. You may wish to add an interpretation of the coefficients of these classifiers.  Or there may be other metrics (confusion matrix) that you think should be presented.
+
+A confusion matrix for LDA and QDA is a great why to compare the two models on their accuracy, precision, and recall. 
+
+```{python}
+#| echo: false
+#| results: 'asis'
+df_lda = pd.read_csv('../../data_cache/vignettes/supervised_classification/lda.csv')
+df_qda = pd.read_csv('../../data_cache/vignettes/supervised_classification/qda.csv')
+df_lda.rename(columns={"Unnamed: 0": "Category"}, inplace=True)
+df_qda.rename(columns={"Unnamed: 0": "Category"}, inplace=True)
+print(df.round(3).to_markdown(index=False))
+```
 
 
 ## ROC curve (and AUC) for two simple classifiers
