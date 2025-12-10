@@ -23,7 +23,7 @@ The goal of this report is to determine if it is possible to categorize how old 
 
 
 ## The Data
-
+### Data Preview
 First, a preview of the data is great because it provides and basic overview of that type of variables and see the size of the data. Below is a table detailing the amount of data points for each group, houses built before and after 1930.
 
 ```{python}
@@ -37,24 +37,29 @@ import pandas as pd
 #| echo: false
 #| results: 'asis'
 df = pd.read_csv('../../data_cache/vignettes/supervised_classification/frequencies.csv')
-print(df.round(3).to_markdown(index=False))
+df.round(3)
 ```
 
-Below is a more clunky version of the summary statistics. 
+
+Below are more summary statistics. 
 
 ```{python}
 #| echo: false
 #| results: 'asis'
 df = pd.read_csv('../../data_cache/vignettes/supervised_classification/grouped_stats.csv')
-print(df.round(3).to_markdown(index=False))
+df.round(3)
 ```
 
+
+### Scatter plots
 It is always useful to view a scatter plot of the data, marking the two known groups where the points in red are homes built after the 1930 and the blue points are homes built before then. 
 
 
 ![](../../data_cache/vignettes/supervised_classification/scatterplot.html){width="100%" height="600px"}
 
+The scatter plot should a linear trend where the more energy efficient the home is, the more of an environmental impact there will be. This seems counter intuitive where one would think that efficiency would mean that there is less of an environmental impact. It is also the more modern homes that have this result. This could be contributed to the number of rooms that a home has. Below is a box plot determining if newer homes have more rooms. 
 
+![](../../data_cache/vignettes/supervised_classification/boxplot_rooms.html){width="100%" height="600px"}
 
 For more marks, you may wish to extend this EDA section slightly.  We can extract the performance metrics from fitting such models:
 
