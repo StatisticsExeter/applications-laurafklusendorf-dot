@@ -94,8 +94,8 @@ Precision relates to how many positives the model was able to correctly identify
 
 The confusion matrices below allow for a better visualization of how well each model works. 
 
-![](../../data_cache/vignettes/supervised_classification/confusion_matrix_LDA.html){width="100%" height="600px"}
-![](../../data_cache/vignettes/supervised_classification/confusion_matrix_QDA.html){width="100%" height="600px"}
+<!-- ![](../../data_cache/vignettes/supervised_classification/confusion_matrix_LDA.html){width="100%" height="600px"} -->
+<!-- ![](../../data_cache/vignettes/supervised_classification/confusion_matrix_QDA.html){width="100%" height="600px"} -->
 
 
 ## ROC curve and AUC for two simple classifiers
@@ -106,7 +106,7 @@ The Area Under the Curve (ACU) is an index that determines how well the model is
 
 ![](../../data_cache/vignettes/supervised_classification/roc.html){width="100%" height="600px"}
 
-Here it can be seen that the performance of the LDA classifier has an AUC of 0.81 and the QDA classifier as a AUC of 0.79. Both of these models are fairly good, however the LDA is slightly better. This 
+Here it can be seen that the performance of the LDA classifier has an AUC of 0.81 and the QDA classifier as a AUC of 0.79. Both of these models are fairly good, however the LDA is slightly better. 
 
 
 

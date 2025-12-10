@@ -2,7 +2,7 @@ import joblib
 import pandas as pd
 from course.utils import find_project_root
 from sklearn.metrics import confusion_matrix
-import plotly.figure_factory as ff
+import plotly.graph_objects as go
 
 
 def predict(model_path, X_test_path, y_pred_path, y_pred_prob_path):
@@ -26,15 +26,14 @@ def pred_lda():
     y_pred_path = base_dir / 'data_cache' / 'models' / 'lda_y_pred.csv'
     y_pred_prob_path = base_dir / 'data_cache' / 'models' / 'lda_y_pred_prob.csv'
     predict(model_path, X_test_path, y_pred_path, y_pred_prob_path)
-    #confusion matrix
-    y_test_path = base_dir / 'data_cache' / 'energy_y_test.csv'
-    y_test = pd.read_csv(y_test_path).squeeze()
-    y_pred = pd.read_csv(y_pred_path).squeeze()
-    cm_LDA = confusion_matrix(y_test, y_pred)
-    fig = ff.create_annotated_heatmap(z=cm_LDA, x=labels, y=labels, colorscale="blues", showscale=True)
-    fig.update_layout(title=title)
-    outpath = base_dir / 'data_cache' / 'vignettes' / 'supervised_classification' / 'confusion_matrix_LDA.html'
-    fig.write_html(outpath)
+    # #confusion matrix
+    # y_test_path = base_dir / 'data_cache' / 'energy_y_test.csv'
+    # y_test = pd.read_csv(y_test_path).squeeze()
+    # y_pred = pd.read_csv(y_pred_path).squeeze()
+    # cm_LDA = confusion_matrix(y_test, y_pred)
+    # fig = go.Figure(data=go.Heatmap(cm_LDA, showscale=True, text=None))
+    # outpath = base_dir / 'data_cache' / 'vignettes' / 'supervised_classification' / 'confusion_matrix_LDA.html'
+    # fig.write_html(outpath)
 
 
 def pred_qda():
