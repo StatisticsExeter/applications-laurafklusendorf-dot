@@ -41,11 +41,12 @@ Where
 
 ## The Data
 
-Some initial exploratory data analysis shows us how the carbon emissions vary by age of property and by the number of rooms:
-
-
+The box plot gives a surface level introduction to how carbon emissions vary based on when the home was built. Where the old are homes built before 1930 and the new is after. The shortfall is the amount of carbon emissions when the data is normalized by room count because of course larger houses will take more energy to warm up.
 
 ![](../../data_cache/vignettes/regression/boxplot_age.html){width="100%" height="600px"}
+
+
+The box plot below describes the shortfall or the degree of carbon emissions used for a home to be heated based on the number of rooms instead of by age. It makes sense that the more rooms a house has and thus the larger the house, that it will take more energy to keep warm. It is interesting that it keeps moderately level and then increases passed six rooms. 
 
 ![](../../data_cache/vignettes/regression/boxplot_rooms.html){width="100%" height="600px"}
 
