@@ -76,5 +76,6 @@ def _scatter_clusters(df):
                             x="PC1",
                             y="PC2",
                             color="cluster",
-                            title='PCA Scatter Plot Colored by Cluster Labels')
+                            title='PCA Scatter Plot Colored by Cluster Labels',
+                            labels={'cluster': 'Cluster'})
     return PC_scatter
