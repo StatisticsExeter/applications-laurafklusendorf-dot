@@ -13,14 +13,19 @@ def plot_scatter():
     title = "Energy variables showing different built_age type"
     fig = scatter_onecat(df, 'built_age', title)
     fig.write_html(outpath)
-    #making a boxplot to determine if newer homes and more rooms
-    figure = px.box(df,
-                    x='built_age',
-                    y='energy_consumption_current',
-                    title='Boxplot of Number of Rooms based on Home Age',
-                    labels={"built_age":"Built Age", "energy_consumption_current": "Current Energy Consumption"})
-    outpath_box = base_dir / VIGNETTE_DIR / 'boxplot.html'
-    figure.write_html(box_outpath)
+    #making a boxplot of all the given variables vs the built age 
+    variables = ["current_energy_efficiency",
+                 "environment_impact_current",
+                 "co2_emissions_current"]
+    df_long = df.melt(id_vars="built_age", value_vars=variables, var_name="Metrics", value_name="Value")
+    plot_matrix = px.box(df_long,
+                         x="built_age",
+                         y="Value",
+                         facet_col="Metrics",
+                         color="built_age")
+    
+    outpath_box = base_dir / VIGNETTE_DIR / 'boxplot_matrix.html'
+    plot_matrix.write_html(outpath_box)
 
 
 def scatter_onecat(df, cat_column, title):
