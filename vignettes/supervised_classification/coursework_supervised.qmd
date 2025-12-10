@@ -20,7 +20,7 @@ Data on [Energy Certificates](https://epc.opendatacommunities.org/) were downloa
 - Energy costs: Potential costs for heating and lighting the property are provided.
 - Improvement recommendations: Each EPC lists cost-effective ways to improve the building's energy performance.
 
-In all, there are 93 variables available on a wide range of metrics. The full dataset is in the course database server at `10.121.4.250` in `energy.energy_certificates`
+In all, there are 93 variables available on a wide range of metrics. The full dataset is in the course database server at `10.121.4.250` in `energy.energy_certificates`.
 
 The data have been used for various published supervised classification exercises:
 
@@ -100,13 +100,15 @@ You should comment on these results. You may wish to add an interpretation of th
 
 ## ROC curve (and AUC) for two simple classifiers
 
-We can of course examine the AUC for these classifiers.
+The Receiver Operating Characteristic or ROC curve is a model that determines how reliable the model is at differentiating between two classifiers. True Positive Rate (TPR) is the proportion of how many times the model is correct in identifying a positive case as such. Conversely, False Positive Rate (FPR) is the proportion of cases that are negative but where identified as positive. 
 
+The Area Under the Curve (ACU) is an index that determines how well the model is. The scale goes from 0-1 where 1 is perfect and 0.5 is random and anything less than 0.5 is worse than truly random.
 
 ![](../../data_cache/vignettes/supervised_classification/roc.html){width="100%" height="600px"}
 
+Here it can be seen that the performance of the LDA classifier has an AUC of 0.19 and the QDA classifier as a AUC of 0.21. This means that both of these models are worse at separating between the two groups than if the model was truly random. However QDA is slightly better.
 
-You should comment on the performance of the classifier.
+
 
 ##  Additional credit
 
