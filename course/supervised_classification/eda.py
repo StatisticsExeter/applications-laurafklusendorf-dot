@@ -25,7 +25,7 @@ def scatter_onecat(df, cat_column, title):
     scatter_plot = px.scatter(df,
                               x=x_col,
                               y=y_col,
-                              color=cat_column, 
+                              color=cat_column,
                               title=title)
     return scatter_plot
 
