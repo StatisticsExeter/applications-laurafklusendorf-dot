@@ -19,7 +19,14 @@ def scatter_onecat(df, cat_column, title):
     """Return a plotly express figure which is a scatterplot of all numeric columns in df
     with markers/colours given by the text in column cat_column
     and overall title specfied by title"""
-    scatter_plot = px.scatter(df, color=cat_column, title=title)
+    numeric = df.select_dtypes(include='number').columns
+    x_col = numeric[0]
+    y_col = numeric[1]
+    scatter_plot = px.scatter(df,
+                              x=x_col,
+                              y=y_col,
+                              color=cat_column, 
+                              title=title)
     return scatter_plot
 
 
