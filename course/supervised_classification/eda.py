@@ -16,9 +16,9 @@ def plot_scatter():
     #making a boxplot to determine if newer homes and more rooms
     figure = px.box(df,
                     x='built_age',
-                    y='n_rooms',
+                    y='energy_consumption_current',
                     title='Boxplot of Number of Rooms based on Home Age',
-                    labels={"built_age":"Built Age", "n_rooms": "Number of Rooms"})
+                    labels={"built_age":"Built Age", "energy_consumption_current": "Current Energy Consumption"})
     outpath_box = base_dir / VIGNETTE_DIR / 'boxplot.html'
     figure.write_html(box_outpath)
 
