@@ -10,7 +10,7 @@ format:
 The goal of this project is to look at the environmental impact because homes built before and after 1930. This report will also build a model to be able to accurately predict when a home was built based off of the environmental impact data. This will be beneficial because it will allow officials to approach these homes with a different strategy that is needed for reducing the environmental impact of UK housing. 
 
 ## The Problem
-Climate change is an every increasing issue in the world and it is important to reduce the amount of carbon emissions in all aspects of life, including housing. Since housing has a multitude of variables that impacts it's energy efficiency and carbon footprint, it makes sense that a different approach to reduce the environmental impact will be different for different types of homes. Homes can be separated out into two groups, homes built before 1930 and homes built after. This makes sense because older homes where built differently and are more settled so drafts are more of an issue. 
+Climate change is an every increasing issue in the world and it is important to reduce the amount of carbon emissions in all aspects of life, including housing. Since housing has a multitude of variables that impacts it's energy efficiency and carbon footprint, it makes sense that a different approach to reduce the environmental impact will be different for different types of homes. Homes can be separated out into two groups, homes built before 1930 and homes built after. This makes sense because older homes were built differently and are more settled so drafts are more of an issue. 
 
 The data used in this report is a non-random sample of UK housing from [Energy Certificates](https://epc.opendatacommunities.org/) and was downloaded December of 2025. The full dataset is only available on server '10.121.4.250' with the file 'energy.energy_certificates'. There are 93 total variables which include information on: 
 
@@ -41,6 +41,8 @@ df.round(3)
 ```
 
 
+
+
 Below are more summary statistics. 
 
 ```{python}
@@ -65,7 +67,7 @@ The three boxplots above show the current energy efficiency, current environment
 
 ## Fitting LDA and QDA classifiers
 
-The simplest classifiers we could apply are Linear and Quadratic Discriminant analysis (LDA and QDA respectively). LDA uses Bayes# theorem to calculate the probability if an input will belong to a specific output grouping. QDA is a more complex method that is similar to LDA but additionally uses its own covariance matrix. Both methods are extremely useful; however, sometimes over complicating the model can do more harm than good. Therefore, it is best to compare the two models to determine which one is the better fit for predicting the age of a home. 
+The simplest classifiers we could apply are Linear and Quadratic Discriminant analysis (LDA and QDA respectively). LDA uses Bayes' theorem to calculate the probability if an input will belong to a specific output grouping. QDA is a more complex method that is similar to LDA but additionally uses its own covariance matrix. Both methods are extremely useful; however, sometimes over complicating the model can do more harm than good. Therefore, it is best to compare the two models to determine which one is the better fit for predicting the age of a home. 
 
 ### Results from fitting a linear discriminant analysis
 
@@ -87,13 +89,8 @@ df.rename(columns={"Unnamed: 0": "Category"}, inplace=True)
 print(df.round(3).to_markdown(index=False))
 ```
 
-Precision relates to how many positives the model was able to correctly identify. This does not take into account the number of false positives. 
+Precision relates to how many positives the model was able to correctly identify. This does not take into account the number of false positives. Where LDA has a more even precision between positively identifying homes built before and after 1930. QDA has a harder time identifying correctly more modern homes but is much better at determining older homes. This means that the QDA model is more likely to classify a home has being older.  
 
-Recall relates to the sensitivity of the model and determines how many positives there actually are. 
-
-F1-Score
-
-Support
 
 The confusion matrices below allow for a better visualization of how well each model works. 
 
@@ -101,7 +98,7 @@ The confusion matrices below allow for a better visualization of how well each m
 ![](../../data_cache/vignettes/supervised_classification/confusion_matrix_QDA.html){width="100%" height="600px"}
 
 
-## ROC curve (and AUC) for two simple classifiers
+## ROC curve and AUC for two simple classifiers
 
 The Receiver Operating Characteristic or ROC curve is a model that determines how reliable the model is at differentiating between two classifiers. True Positive Rate (TPR) is the proportion of how many times the model is correct in identifying a positive case as such. Conversely, False Positive Rate (FPR) is the proportion of cases that are negative but where identified as positive. 
 
@@ -120,13 +117,12 @@ For additional credit you should consider extended the pipeline and trying out o
 
 ## Record of AI use for MTHM503 supervised coursework
 
-Instructions: You can use this document to record when, how and why you used GenAI to complete your assessment. It will help you create a record of AI use to submit alongside your references for AI-integrated and AI-assisted assignments. It may also be useful to help you discuss your AI use if you are required to do so in an academic conduct meeting.
 
 | **Date**       | **AI tool used** | **Purpose**                                | **Prompt**                                 | **Hyperlink to output (where possible)** | **Section of work used for** |
 |----------------|------------------|--------------------------------------------|--------------------------------------------|------------------------------------------|-------------------------------|
 | E.g. 15/07/2025| MS Copilot       | To help create an organised essay structure| ‘Generate ideas for structuring an essay on...’ | [insert link]                          | introduction                  |
 |                |                  |                                            |                                            |                                          |                               |
-|                |                  |                                            |                                            |                                          |                               |
+|10/12/2025      |MS Copilot      | Help making a confusion matrix for LDA                                           |                                            |                                          |                               |
 |                |                  |                                            |                                            |                                          |                               |
 |                |                  |                                            |                                            |                                          |                               |
 |                |                  |                                            |                                            |                                          |                               |

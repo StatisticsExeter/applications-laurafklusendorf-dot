@@ -31,7 +31,8 @@ def pred_lda():
     y_test = pd.read_csv(y_test_path).squeeze()
     y_pred = pd.read_csv(y_pred_path).squeeze()
     cm_LDA = confusion_matrix(y_test, y_pred)
-    fig = ff.create_annotated_heatmap(z=cm_LDA)
+    fig = ff.create_annotated_heatmap(z=cm_LDA, x=labels, y=labels, colorscale="blues", showscale=True)
+    fig.update_layout(title=title)
     outpath = base_dir / 'data_cache' / 'vignettes' / 'supervised_classification' / 'confusion_matrix_LDA.html'
     fig.write_html(outpath)
 
