@@ -26,12 +26,7 @@ def hierarchical_groups(height):
     scaler = StandardScaler()
     df_scaled = scaler.fit_transform(df)
     linked = _fit_dendrogram(df_scaled)
-    #making a scaled dendrogram to determine where the height for cut off would be
-    scaled_dendrogram.updata_layout(title="Scaled Dendrogram")
-    dendro_outpath = base_dir / 'data_cache' / 'vignettes' / 'unsupervised_classification' / 'scaled_dendrogram.html'
-    scaled_dendrogram = ff.create_dendrogram(df_scaled)
-    scaled_dendrogram.write_html(dendro_outpath)
-    clusters = _cutree(linked, height)  # adjust this value based on dendrogram scale
+    clusters = _cutree(linked, height=7)  # adjust this value based on dendrogram scale
     df_plot = _pca(df_scaled)
     df_plot['cluster'] = clusters.astype(str)  # convert to string for color grouping
     outpath = base_dir / VIGNETTE_DIR / 'hscatter.html'
