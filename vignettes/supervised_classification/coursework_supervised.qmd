@@ -6,19 +6,20 @@ format:
     embed-resources: true
 
 ---
-## The Task
+## Introduction
+
+### The Task
 The goal of this project is to look at the environmental impact because homes built before and after 1930. This report will also build a model to be able to accurately predict when a home was built based off of the environmental impact data. This will be beneficial because it will allow officials to approach these homes with a different strategy that is needed for reducing the environmental impact of UK housing. 
 
-## The Problem
+### The Problem
 Climate change is an every increasing issue in the world and it is important to reduce the amount of carbon emissions in all aspects of life, including housing. Since housing has a multitude of variables that impacts it's energy efficiency and carbon footprint, it makes sense that a different approach to reduce the environmental impact will be different for different types of homes. Homes can be separated out into two groups, homes built before 1930 and homes built after. This makes sense because older homes were built differently and are more settled so drafts are more of an issue. 
 
 The data used in this report is a non-random sample of UK housing from [Energy Certificates](https://epc.opendatacommunities.org/) and was downloaded December of 2025. The full dataset is only available on server '10.121.4.250' with the file 'energy.energy_certificates'. There are 93 total variables which include information on: 
 
-- Property energy efficiency -- The data provides a ranking from A (most efficient)  to G (least efficient)
+- Property energy efficiency -- the data provides a ranking from A (most efficient) to G (least efficient)
 - CO~2~ Emissions
 - Electricity costs
- 
-## The Goal
+
 The goal of this report is to determine if it is possible to categorize how old a home is (pre and post 1930) based off of energy efficiency data and the metrics: `current_energy_efficiency`, `environment_impact_current`, `energy_consumption_current`, `co2_emissions_current`, `lighting_cost_current`, `heating_cost_current`, `hot_water_cost_current`. If able to predict the age of the home based off of the data will save a lot of resources because having a home visit to gather that information would not be needed.
 
 
