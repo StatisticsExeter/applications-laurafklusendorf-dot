@@ -9,44 +9,16 @@ format:
 ## Introduction
 
 ### The Task
-
-This material is provided as context to the problem. You should rewrite it as you see fit.  In particular, you should demonstrate you understand why we are undertaking a cluster analysis, and what the various methods are telling us.  In particular, you should explain how principal components helps us visualize the results of the clustering.
-
+Car accidents can be caused due a multitude of reasons and some conditions make a crash more likely to occur. This report aims to determine which conditions tend to go hand in hand by applying cluster analysis. Cluster analysis groups accidents with similar circumstances such as weather, lighting, and road type to discover a meaningful pattern. In addition to cluster analysis, principle component analysis (PCA) is used to get a more clear visual of the clusters. By using both cluster analysis and PCA, it can be determined how accident conditions relate to each other and figure out scenarios where accidents are more likely to occur.
 
 ### The Problem
-
-Police recorded data in Great Britain is called "Stats19" and is available at <https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-accidents-safety-data>.  These data are typically split into three linked tables:
-
-- Accidents
-
-  Each row represents a single reported accident. Key fields include:
-
-  - Date and time
-  - Location (e.g. latitude/longitude, local authority)
-  - Road type and conditions
-  - Weather and lighting
-  - Number of vehicles and casualties
-
-- Vehicles
-
-  Each row represents a vehicle involved in an accident. Includes:
-
-  - Vehicle type and age
-  - Manoeuvre and direction
-  - Driver age and sex
-
-- Casualties
+The data used in this report are recorded by the police in Great Britian. The data set is called "Stats19" and is available at <https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-accidents-safety-data>.  
   
-  Each row represents a person injured or killed. Includes:
-
-  - Casualty type (pedestrian, cyclist, driver, etc.)
-  - Severity (slight, serious, fatal)
-  - Age, sex, and mode of transport
+This data can be split into three main groups. Accident information will include: data and time, location, road type and conditions, weather and lighting, and number of behicles and casualties. Vehicle information will include type and age, manoeuvre and direction, and driver age and sex. Casualty information will include who was injured (pedestrian, cyclist, driver, etc.), severity, age, sex, and mode of transport. 
 
 These tables are linked via a unique accident index.
 
-
-We are interested in creating clusters of like authorities based on the kinds of collisions that occur in their area.  You have been given a count of the number of collisions at Mini-roundabout, in the Rain, in the Dark, when the road is Dry, in an urban setting and where the most seriously injured casualty was reported as having a slight injury.
+This report will focus on grouping conditions such as number of collions at mini-roundabout, wet conditions, dark or night time, dry conditions, and in an urban setting and where the most serious casualty is reported as a slight injury. 
 
 Some previous cluster analysis work has been reported at:
 
@@ -65,7 +37,6 @@ The positive relationships within the plot means that there is a positive correl
 Whereas a negative relationship means that those events are more mutually exclusive. For example, accidents when the weather is dry versus when it is raining has a negatively linear relationship.
 
 
-
 ## Hierarchical Clustering
 
 
@@ -74,9 +45,9 @@ Hierarchical clustering is a great starting point because it can group similar d
 ![](../../data_cache/vignettes/unsupervised_classification/dendrogram.html){width="100%" height="600px"}
 
 
-The tree was cut at a certain height or "cut-off" point was selected to further break down the dendrogram graph. This is important for Principal Component Analysis (PCA). PCA is a highly useful tool where is an take a large amount of data and take the most important parts. Where the first principal component (PC1) is the direction in which the data points have the most amount of variance. The second principal component (PC2) takes into account the second most variance while still be not correlated with PC1. Since PC2 is uncorrelated to PC1, this means that it is perpendicular. 
+The tree was cut at a hieght of 7 which makes sense because this is the point on the scaled dendrogram above that sperates out the main truck from the branches. This is important for Principal Component Analysis (PCA). PCA is a highly useful tool where is an take a large amount of data and take the most important parts. Where the first principal component (PC1) is the direction in which the data points have the most amount of variance. The second principal component (PC2) takes into account the second most variance while still be not correlated with PC1. Since PC2 is uncorrelated to PC1, this means that it is perpendicular. 
 
-Here is a scatterplot between PC1 and PC2. Where the direction and length of the plot 
+Here is a scatterplot between PC1 and PC2. Where the direction and length of the plot *continue this paragraph when the hscatter plot has been fixed*
 
 
 <iframe src="../../data_cache/vignettes/unsupervised_classification/hscatter.html"
@@ -85,9 +56,9 @@ Here is a scatterplot between PC1 and PC2. Where the direction and length of the
 
 
 ## kmeans Clustering
+The k-means clustering in this report has grouped the accident cases into 4 (k=4). K-means is extremely good at finding natural groups in unlabeled data and is able to discover patterns within complex datasets. 
 
 
-The second task is to perform k-means clustering. You should select an appropriate number of clusters.
 First, you should look at the cluster centroids:
 
 
@@ -110,10 +81,8 @@ As before you should plot the cluster membership on a scatterplot of the first t
 For additional credit you should consider adding a further unsupervised classification method. Alternatively, you could increase the number of variables used in the clustering.
 
 
-
 ## Record of AI use for MTHM503 unsupervised coursework
 
-Instructions: You can use this document to record when, how and why you used GenAI to complete your assessment. It will help you create a record of AI use to submit alongside your references for AI-integrated and AI-assisted assignments. It may also be useful to help you discuss your AI use if you are required to do so in an academic conduct meeting.
 
 | **Date**       | **AI tool used** | **Purpose**                                | **Prompt**                                 | **Hyperlink to output (where possible)** | **Section of work used for** |
 |----------------|------------------|--------------------------------------------|--------------------------------------------|------------------------------------------|-------------------------------|
