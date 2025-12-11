@@ -75,8 +75,9 @@ Since the goal is to rate each local authority's carbon footprint performance, a
 
 
 ##  Residual Diagnostics
+Residual diagnostics is a great visual tool to determine the validity of a model. 
 
-For additional credit you might like to enhance the exploratory data analysis. You could consider residual diagnostics to check the validity of the model fit. You may also like to consider the appropriateness of the adjusting variables age and number of rooms. You could consider extracting further variables from the database and fitting a slightly more elaborate model.
+![](../../data_cache/vignettes/regression/residual.html){width="100%" height="600px"}
 
 
 ## Record of AI use for MTHM503 Regression coursework

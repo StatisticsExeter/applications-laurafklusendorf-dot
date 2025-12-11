@@ -3,6 +3,7 @@ import numpy as np
 import statsmodels.formula.api as smf
 from pathlib import Path
 from course.utils import find_project_root
+import plotly.express as px
 
 VIGNETTE_DIR = Path('data_cache') / 'vignettes' / 'regression'
 
@@ -43,3 +44,9 @@ def fit_model():
     outpath = VIGNETTE_DIR / 'model_fit.txt'
     _random_effects(results).to_csv(base_dir / 'data_cache' / 'models' / 'reffs.csv')
     _save_model_summary(results, outpath)
+    #making a residual diagonostics model
+    fitted = results.fittedvalues
+    residuals = results.resid
+    df_new = pd.DataFrame({"Fitted": fitted, "Residuals": residuals})
+    fig = px.scatter(df_new, x="Fitted", y="Residuals")
+    fig.write_html(VIGNETTE_DIR / 'residual.html')
