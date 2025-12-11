@@ -26,7 +26,7 @@ def hierarchical_groups(height):
     scaler = StandardScaler()
     df_scaled = scaler.fit_transform(df)
     linked = _fit_dendrogram(df_scaled)
-    clusters = _cutree(linked, height=7)  # adjust this value based on dendrogram scale
+    clusters = _cutree(linked, height=3)  # adjust this value based on dendrogram scale
     df_plot = _pca(df_scaled)
     df_plot['cluster'] = clusters.astype(str)  # convert to string for color grouping
     outpath = base_dir / VIGNETTE_DIR / 'hscatter.html'
@@ -44,8 +44,8 @@ def _fit_dendrogram(df):
 def _plot_dendrogram(df):
     """Given a dataframe df containing only suitable variables
     Use plotly.figure_factory to plot a dendrogram of these data"""
-    Z = linkage(x, method='single', metric='euclidean')
-    dend_fig = ff.create_dendrogram(df, linkagefun=lamnda x: Z)
+    #Z = linkage(x, method='single', metric='euclidean')
+    dend_fig = ff.create_dendrogram(df)
     dend_fig.update_layout(title="Interactive Hierarchical Clustering Dendrogram")
     return dend_fig
 

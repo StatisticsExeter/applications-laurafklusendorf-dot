@@ -12,20 +12,18 @@ format:
 Car accidents can be caused due a multitude of reasons and some conditions make a crash more likely to occur. This report aims to determine which conditions tend to go hand in hand by applying cluster analysis. Cluster analysis groups accidents with similar circumstances such as weather, lighting, and road type to discover a meaningful pattern. In addition to cluster analysis, principle component analysis (PCA) is used to get a more clear visual of the clusters. By using both cluster analysis and PCA, it can be determined how accident conditions relate to each other and figure out scenarios where accidents are more likely to occur.
 
 ### The Problem
-<<<<<<< HEAD
+
 The data used in this report are recorded by the police in Great Britan. The data set is called "Stats19" and is available at <https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-accidents-safety-data>. These tables are linked via a unique accident index.
   
 This data can be split into three main groups. Accident information will include: data and time, location, road type and conditions, weather and lighting, and number of vehicles and casualties. Vehicle information will include type and age, maneuver and direction, and driver age and sex. Casualty information will include who was injured (pedestrian, cyclist, driver, etc.), severity, age, sex, and mode of transport. 
 
 
-=======
 The data used in this report are recorded by the police in Great Britan. The data set is called "Stats19" and is available at <https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-accidents-safety-data>.  
   
 This data can be split into three main groups. Accident information will include: data and time, location, road type and conditions, weather and lighting, and number of vehicles and casualties. Vehicle information will include type and age, maneuver and direction, and driver age and sex. Casualty information will include who was injured (pedestrian, cyclist, driver, etc.), severity, age, sex, and mode of transport. 
 
 These tables are linked via a unique accident index.
 
->>>>>>> 9e3b8f756f83044cb622ef8bef4ea4f54f664d55
 This report will focus on grouping conditions such as number of collisions at mini-roundabout, wet conditions, dark or night time, dry conditions, and in an urban setting and where the most serious casualty is reported as a slight injury. 
 
 Some previous cluster analysis work has been reported at:
@@ -53,7 +51,7 @@ Hierarchical clustering is a great starting point because it can group similar d
 ![](../../data_cache/vignettes/unsupervised_classification/dendrogram.html){width="100%" height="600px"}
 
 
-The tree was cut at a hieght of 7 which makes sense because this is the point on the scaled dendrogram above that sperates out the main truck from the branches. This is important for Principal Component Analysis (PCA). PCA is a highly useful tool where is an take a large amount of data and take the most important parts. Where the first principal component (PC1) is the direction in which the data points have the most amount of variance. The second principal component (PC2) takes into account the second most variance while still be not correlated with PC1. Since PC2 is uncorrelated to PC1, this means that it is perpendicular. 
+The tree was cut at a height of 3 which makes sense because it will cut off the branches from the main trunk. This is evident by the hscatter plot below where there are 4 groups left.  This is important for Principal Component Analysis (PCA). PCA is a highly useful tool where is an take a large amount of data and take the most important parts. Where the first principal component (PC1) is the direction in which the data points have the most amount of variance. The second principal component (PC2) takes into account the second most variance while still be not correlated with PC1. Since PC2 is uncorrelated to PC1, this means that it is perpendicular. 
 
 Here is a scatterplot between PC1 and PC2. Where the direction and length of the plot *continue this paragraph when the hscatter plot has been fixed*
 

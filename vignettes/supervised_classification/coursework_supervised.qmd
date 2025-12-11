@@ -25,7 +25,7 @@ The goal of this report is to determine if it is possible to categorize how old 
 
 ## The Data
 ### Data Preview
-First, a preview of the data is great because it provides and basic overview of that type of variables and see the size of the data. Below is a table detailing the amount of data points for each group, houses built before and after 1930.
+First, a preview of the data is great because it provides and basic overview of that type of variables and see the size of the data. Below is a table detailing the amount of data points for each group, houses built before and after 1930. The second table below contains more summary statistics. 
 
 ```{python}
 #| echo: false
@@ -38,19 +38,20 @@ import pandas as pd
 #| echo: false
 #| results: 'asis'
 df = pd.read_csv('../../data_cache/vignettes/supervised_classification/frequencies.csv')
-df.round(3)
+df.columns = ['Built Age', 'Count']
+print(df.round(3).to_markdown(index=False))
 ```
 
 
 
 
-Below are more summary statistics. 
+
 
 ```{python}
 #| echo: false
 #| results: 'asis'
 df = pd.read_csv('../../data_cache/vignettes/supervised_classification/grouped_stats.csv')
-df.round(3)
+print(df.round(3).to_markdown(index=False))
 ```
 
 
@@ -93,10 +94,10 @@ print(df.round(3).to_markdown(index=False))
 Precision relates to how many positives the model was able to correctly identify. This does not take into account the number of false positives. Where LDA has a more even precision between positively identifying homes built before and after 1930. QDA has a harder time identifying correctly more modern homes but is much better at determining older homes. This means that the QDA model is more likely to classify a home has being older.  
 
 
-The confusion matrices below allow for a better visualization of how well each model works. 
+The confusion matrices below allow for a better visualization of how well each model works. Where TP is 'true positive', FP is 'false positive', FN is 'false negative', and TN is 'true negative'. This has a much more clear display that QDA has three times greater number of false positives than LDA. On the other hand, LDA has double the amount of false negatives than QDA has. These two models have their pros and cons however with further analysis, it can be determined which model is best for the task at hand.
 
-<!-- ![](../../data_cache/vignettes/supervised_classification/confusion_matrix_LDA.html){width="100%" height="600px"} -->
-<!-- ![](../../data_cache/vignettes/supervised_classification/confusion_matrix_QDA.html){width="100%" height="600px"} -->
+![](../../data_cache/vignettes/supervised_classification/confusion_matrix_LDA.html){width="100%" height="300px"}
+![](../../data_cache/vignettes/supervised_classification/confusion_matrix_QDA.html){width="100%" height="300px"}
 
 
 ## ROC curve and AUC for two simple classifiers
@@ -107,13 +108,7 @@ The Area Under the Curve (ACU) is an index that determines how well the model is
 
 ![](../../data_cache/vignettes/supervised_classification/roc.html){width="100%" height="600px"}
 
-Here it can be seen that the performance of the LDA classifier has an AUC of 0.81 and the QDA classifier as a AUC of 0.79. Both of these models are fairly good, however the LDA is slightly better. 
-
-
-
-##  Additional credit
-
-For additional credit you should consider extended the pipeline and trying out other classifiers.
+Here it can be seen that the performance of the LDA classifier has an AUC of 0.81 and the QDA classifier as a AUC of 0.79. Both of these models are fairly good, however the LDA is slightly better and should be used to determine if homes are built before or after 1930. 
 
 
 ## Record of AI use for MTHM503 supervised coursework
@@ -123,7 +118,7 @@ For additional credit you should consider extended the pipeline and trying out o
 |----------------|------------------|--------------------------------------------|--------------------------------------------|------------------------------------------|-------------------------------|
 | E.g. 15/07/2025| MS Copilot       | To help create an organised essay structure| ‘Generate ideas for structuring an essay on...’ | [insert link]                          | introduction                  |
 |                |                  |                                            |                                            |                                          |                               |
-|10/12/2025      |MS Copilot      | Help making a confusion matrix for LDA                                           |                                            |                                          |                               |
+|10/12/2025      |MS Copilot      | Help formatting a confusion matrix for LDA and QDA       |  'How to add lables and format a binary confusion matrix for LDA in python'                                          |                                          |                               |
 |                |                  |                                            |                                            |                                          |                               |
 |                |                  |                                            |                                            |                                          |                               |
 |                |                  |                                            |                                            |                                          |                               |

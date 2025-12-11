@@ -26,14 +26,44 @@ def pred_lda():
     y_pred_path = base_dir / 'data_cache' / 'models' / 'lda_y_pred.csv'
     y_pred_prob_path = base_dir / 'data_cache' / 'models' / 'lda_y_pred_prob.csv'
     predict(model_path, X_test_path, y_pred_path, y_pred_prob_path)
-    # #confusion matrix
-    # y_test_path = base_dir / 'data_cache' / 'energy_y_test.csv'
-    # y_test = pd.read_csv(y_test_path).squeeze()
-    # y_pred = pd.read_csv(y_pred_path).squeeze()
-    # cm_LDA = confusion_matrix(y_test, y_pred)
-    # fig = go.Figure(data=go.Heatmap(cm_LDA, showscale=True, text=None))
-    # outpath = base_dir / 'data_cache' / 'vignettes' / 'supervised_classification' / 'confusion_matrix_LDA.html'
-    # fig.write_html(outpath)
+    #confusion matrix
+    y_test_path = base_dir / 'data_cache' / 'energy_y_test.csv'
+    y_test = pd.read_csv(y_test_path).squeeze()
+    y_pred = pd.read_csv(y_pred_path).squeeze()
+    labels = [True, False]
+    cm = confusion_matrix(y_test, y_pred)
+    TP = cm[0, 0]
+    FN = cm[0, 1]
+    FP = cm[1, 0]
+    TN = cm[1, 1]
+    fig = go.Figure(
+        data=[
+            go.Table(
+                header=dict(
+                    values=["", "Predicted = TRUE", "Predicted = FALSE"],
+                    fill_color="lightgrey",
+                    align="center",
+                    font=dict(size=14)
+                ),
+                cells=dict(
+                    values=[
+                        ["Actual = TRUE", "Actual = FALSE"],
+                        [
+                            f"{TP}<br>(True Positive)",
+                            f"{FP}<br>(False Positive)"
+                        ],
+                        [
+                            f"{FN}<br>(False Negative)",
+                            f"{TN}<br>(True Negative)"
+                        ]
+                    ],
+                    align="center"))])
+
+    fig.update_layout(
+        title="LDA Confusion Matrix (TP / FP / FN / TN)"
+    )
+    outpath = base_dir / 'data_cache' / 'vignettes' / 'supervised_classification' / 'confusion_matrix_LDA.html'
+    fig.write_html(outpath)
 
 
 def pred_qda():
@@ -43,3 +73,41 @@ def pred_qda():
     y_pred_path = base_dir / 'data_cache' / 'models' / 'qda_y_pred.csv'
     y_pred_prob_path = base_dir / 'data_cache' / 'models' / 'qda_y_pred_prob.csv'
     predict(model_path, X_test_path, y_pred_path, y_pred_prob_path)
+    #confusion matrix
+    y_test_path = base_dir / 'data_cache' / 'energy_y_test.csv'
+    y_test = pd.read_csv(y_test_path).squeeze()
+    y_pred = pd.read_csv(y_pred_path).squeeze()
+    labels = [True, False]
+    cm = confusion_matrix(y_test, y_pred)
+    TP = cm[0, 0]
+    FN = cm[0, 1]
+    FP = cm[1, 0]
+    TN = cm[1, 1]
+    fig = go.Figure(
+        data=[
+            go.Table(
+                header=dict(
+                    values=["", "Predicted = TRUE", "Predicted = FALSE"],
+                    fill_color="lightgrey",
+                    align="center",
+                    font=dict(size=14)
+                ),
+                cells=dict(
+                    values=[
+                        ["Actual = TRUE", "Actual = FALSE"],
+                        [
+                            f"{TP}<br>(True Positive)",
+                            f"{FP}<br>(False Positive)"
+                        ],
+                        [
+                            f"{FN}<br>(False Negative)",
+                            f"{TN}<br>(True Negative)"
+                        ]
+                    ],
+                    align="center"))])
+
+    fig.update_layout(
+        title="QDA Confusion Matrix (TP / FP / FN / TN)"
+    )
+    outpath = base_dir / 'data_cache' / 'vignettes' / 'supervised_classification' / 'confusion_matrix_QDA.html'
+    fig.write_html(outpath)

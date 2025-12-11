@@ -74,7 +74,7 @@ Since the goal is to rate each local authority's carbon footprint performance, a
 ![](../../data_cache/vignettes/regression/caterpillar.html){width="100%" height="600px"}
 
 
-##  Additional credit
+##  Residual Diagnostics
 
 For additional credit you might like to enhance the exploratory data analysis. You could consider residual diagnostics to check the validity of the model fit. You may also like to consider the appropriateness of the adjusting variables age and number of rooms. You could consider extracting further variables from the database and fitting a slightly more elaborate model.
 
