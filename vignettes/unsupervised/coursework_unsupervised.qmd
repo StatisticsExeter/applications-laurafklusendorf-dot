@@ -68,7 +68,7 @@ First, you should look at the cluster centroids:
 ![](../../data_cache/vignettes/unsupervised_classification/kcentroids2.html){width="100%" height="600px"}
 
 
-As before you should plot the cluster membership on a scatterplot of the first two principal components.
+K-means clustering analysis will create it's own PC1 and PC2 values. The scatter plot below deonstrates this. The cluster groupings 
 
 ![](../../data_cache/vignettes/unsupervised_classification/kscatter.html){width="100%" height="600px"}
 
