@@ -26,7 +26,7 @@ def hierarchical_groups(height):
     scaler = StandardScaler()
     df_scaled = scaler.fit_transform(df)
     linked = _fit_dendrogram(df_scaled)
-    clusters = _cutree(linked, height)  # adjust this value based on dendrogram scale
+    clusters = _cutree(linked, height=height)  # adjust this value based on dendrogram scale
     df_plot = _pca(df_scaled)
     df_plot['cluster'] = clusters.astype(str)  # convert to string for color grouping
     outpath = base_dir / VIGNETTE_DIR / 'hscatter.html'
@@ -61,8 +61,8 @@ def _cutree(tree, height):
 def _pca(df):
     """Given a dataframe of only suitable variables
     return a dataframe of the first two pca predictions (z values) with columns 'PC1' and 'PC2'"""
-    values = PCA(n_components=2)
-    values = values.fit_transform(df)
+    pca = PCA(n_components=2)
+    values = pca.fit_transform(df)
     data_df = pd.DataFrame(data=values, columns=['PC1', 'PC2'])
     return data_df
 
@@ -72,10 +72,18 @@ def _scatter_clusters(df):
       (the first two principal component projections and the cluster groups)
     return a plotly express scatterplot of PC1 versus PC2
     with marks to denote cluster group membership"""
-    PC_scatter = px.scatter(df,
-                            x="PC1",
-                            y="PC2",
-                            color="cluster",
-                            title='PCA Scatter Plot Colored by Cluster Labels',
-                            labels={'cluster': 'Cluster'})
-    return PC_scatter
+    pca = PCA(n_components=2)
+    values = pca.fit_transform(df)
+    data_df = pd.DataFrame(data=values, columns=['PC1', 'PC2'])
+    var_ratio = pca.explained_variance_ratio_
+    fig = px.scatter(df,
+                     x="PC1",
+                     y="PC2",
+                     color="cluster",
+                     title='PCA Scatter Plot Colored by Cluster Labels',
+                     labels={'cluster': 'Cluster'})
+    fig.update_layout(xaxis_title=f"PC1 ({var_ratio[0]*100:.1f}% variance)",
+                      yaxis_title=f"PC2 ({var_ratio[1]*100:.1f}% variance)")
+    return fig
+  
+  
