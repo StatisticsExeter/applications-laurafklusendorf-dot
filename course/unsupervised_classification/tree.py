@@ -44,7 +44,8 @@ def _fit_dendrogram(df):
 def _plot_dendrogram(df):
     """Given a dataframe df containing only suitable variables
     Use plotly.figure_factory to plot a dendrogram of these data"""
-    dend_fig = ff.create_dendrogram(df)
+    Z = linkage(x, method='single', metric='euclidean')
+    dend_fig = ff.create_dendrogram(df, linkagefun=lamnda x: Z)
     dend_fig.update_layout(title="Interactive Hierarchical Clustering Dendrogram")
     return dend_fig
 
