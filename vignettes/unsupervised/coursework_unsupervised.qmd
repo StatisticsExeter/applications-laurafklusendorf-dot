@@ -78,7 +78,9 @@ K-means clustering can be broken down to a number of steps. Step 1 is to determi
 
 ![](../../data_cache/vignettes/unsupervised_classification/kvalue.html){width="100%" height="600px"}
 
-The k-means clustering in this report has grouped the accident cases into 4 (k=4) and this is proven as a good choice by the plot above. K-means is extremely good at finding natural groups in unlabeled data and is able to discover patterns within complex datasets. First, looking at the centroids will provide insights into the groupings. Below is the first centroids barcart where it can be clearly seen that cluster 3 has more points in its group than any other cluster. This shows that there is a driving condition that see far more car accidents than any other grouping. 
+The k-means clustering in this report has grouped the accident cases into 4 (k=4). The plot does not show a clear 'elbow' however at k=4, the slope is less dramatic than before then, in addition, it is not wise to over fit the data so having 4 clusters is a safe choice. 
+
+K-means is extremely good at finding natural groups in unlabeled data and is able to discover patterns within complex datasets. First, looking at the centroids will provide insights into the groupings. Below is the first centroids barcart where it can be clearly seen that cluster 3 has more points in its group than any other cluster. This shows that there is a driving condition that see far more car accidents than any other grouping. 
 
 
 ![](../../data_cache/vignettes/unsupervised_classification/kcentroids1.html){width="100%" height="600px"}
