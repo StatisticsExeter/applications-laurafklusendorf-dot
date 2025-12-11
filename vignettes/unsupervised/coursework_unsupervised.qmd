@@ -64,7 +64,7 @@ Hierarchical clustering is a great starting point because it can group similar d
 
 The tree was cut at sensible height which will cut off the branches from the main trunk. This is evident by the hscatter plot below where there are 4 groups left.  This is important for Principal Component Analysis (PCA). 
 
-PCA uses dimensional reduction and takes uncorrelated variables, known as principle components, to simplify the data while keeping the original dataset's variability. It does this by using linear algebra where the principle components are eigenvectors. Where PC1 is the eigenvector or the direction in which there is the highest amount of variance and PC2 is the eigenvector of the second highest amount of variance. When they are plotted, they become eigenvalues where direction isn't a factor anymore but 
+Below is a PCA scatterplot using the hierarchical clustering. It shows that PC1 and PC2 captures 65% and 31.9% of the original variance respectively. The sum of these percentages will detail how much the model captures the original data. Therefore the hscatter plot has a cumulative variance of 96.9%. This high cumulative variance means that this has maintain most of the data's information and ensures that the plots are meaningful.   
 
 <iframe src="../../data_cache/vignettes/unsupervised_classification/hscatter.html"
         width="100%" height="600px"></iframe>
