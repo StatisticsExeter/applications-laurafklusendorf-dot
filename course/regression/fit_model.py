@@ -4,8 +4,10 @@ import statsmodels.formula.api as smf
 from pathlib import Path
 from course.utils import find_project_root
 import plotly.express as px
+from scipy import stats
 
 VIGNETTE_DIR = Path('data_cache') / 'vignettes' / 'regression'
+
 
 
 def _fit_model(df):
@@ -14,7 +16,11 @@ def _fit_model(df):
     Fit a linear mixed model with shortfall as the response variable
     n_rooms and age as fixed predictors
     with local_authority_code as a random effect"""
-    mixed_model = smf.mixedlm("shortfall ~ n_rooms + age",
+    #basic model
+    y_bc, lam = stats.boxcox(df["shortfall"])
+    df = df.copy()
+    df["shortfall_bc"] = y_bc
+    mixed_model = smf.mixedlm("shortfall_bc ~ n_rooms + age",
                               data=df,
                               groups=df["local_authority_code"])
     mixed_model = mixed_model.fit()
@@ -48,5 +54,9 @@ def fit_model():
     fitted = results.fittedvalues
     residuals = results.resid
     df_new = pd.DataFrame({"Fitted": fitted, "Residuals": residuals})
-    fig = px.scatter(df_new, x="Fitted", y="Residuals")
-    fig.write_html(VIGNETTE_DIR / 'residual.html')
+    fig = px.scatter(df_new,
+                     x="Fitted",
+                     y="Residuals",
+                     title="Residual vs Fitted Values - Mixed Linear Model Regression")
+    fig.add_hline(y=0, line_dash="dash", line_color="red")
+    fig.write_html(VIGNETTE_DIR / 'residual_mixed.html')

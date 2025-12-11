@@ -41,7 +41,7 @@ Where
 
 
 
-## The Data
+## The Data and Exploratory Data Analysis
 
 The box plot gives a surface level introduction to how carbon emissions vary based on when the home was built. Where the old are homes built before 1930 and the new is after. The shortfall is the amount of carbon emissions when the data is normalized by room count because of course larger houses will take more energy to warm up.
 
@@ -67,6 +67,9 @@ with open('../../data_cache/vignettes/regression/model_fit.txt') as f:
     print(content)
 ```
 
+Residual diagnostics is a great visual tool to determine the validity of a model. Below is 
+
+![](../../data_cache/vignettes/regression/residual_mixed.html){width="100%" height="600px"}
 
 ## The Key Insight
 Since the goal is to rate each local authority's carbon footprint performance, a "caterpillar plot" was produced of the random effects with a confidence interval (CI) of 95%. Where the effect size shows how much higher or lower that local authority is compared to the average between all of them. Where when the effect size is larger than 0, then there are more carbon emissions than average. The random effect estimate or each blue dot is how much on average that local authority diverges from the average between all of them. Therefore the local authorities at the bottom of the graph are doing a better job at reducing the carbon footprint within their jurisdiction.
@@ -75,9 +78,7 @@ Since the goal is to rate each local authority's carbon footprint performance, a
 
 
 ##  Residual Diagnostics
-Residual diagnostics is a great visual tool to determine the validity of a model. 
 
-![](../../data_cache/vignettes/regression/residual.html){width="100%" height="600px"}
 
 
 ## Record of AI use for MTHM503 Regression coursework
