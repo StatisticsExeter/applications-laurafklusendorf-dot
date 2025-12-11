@@ -71,7 +71,7 @@ Below is a PCA scatterplot using the hierarchical clustering. It shows that PC1 
 
 
 
-## kmeans Clustering
+## K-Means Clustering
 The k-means clustering in this report has grouped the accident cases into 4 (k=4). K-means is extremely good at finding natural groups in unlabeled data and is able to discover patterns within complex datasets. 
 
 
