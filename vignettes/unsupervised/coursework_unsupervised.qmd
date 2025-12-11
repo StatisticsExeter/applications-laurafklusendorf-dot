@@ -13,23 +13,18 @@ Car accidents can be caused due a multitude of reasons and some conditions make 
 
 ### The Problem
 
-The data used in this report are recorded by the police in Great Britan. The data set is called "Stats19" and is available at <https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-accidents-safety-data>. These tables are linked via a unique accident index.
-  
-This data can be split into three main groups. Accident information will include: data and time, location, road type and conditions, weather and lighting, and number of vehicles and casualties. Vehicle information will include type and age, maneuver and direction, and driver age and sex. Casualty information will include who was injured (pedestrian, cyclist, driver, etc.), severity, age, sex, and mode of transport. 
-
-
-The data used in this report are recorded by the police in Great Britan. The data set is called "Stats19" and is available at <https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-accidents-safety-data>.  
-  
-This data can be split into three main groups. Accident information will include: data and time, location, road type and conditions, weather and lighting, and number of vehicles and casualties. Vehicle information will include type and age, maneuver and direction, and driver age and sex. Casualty information will include who was injured (pedestrian, cyclist, driver, etc.), severity, age, sex, and mode of transport. 
-
-These tables are linked via a unique accident index.
-
-This report will focus on grouping conditions such as number of collisions at mini-roundabout, wet conditions, dark or night time, dry conditions, and in an urban setting and where the most serious casualty is reported as a slight injury. 
-
+The data used in this report are recorded by the police in Great Britan. The data set is called "Stats19" and is available at <https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-accidents-safety-data>. These tables are linked via a unique accident index. 
 Some previous cluster analysis work has been reported at:
 
 - [ Cluster analysis](https://ijirt.org/publishedpaper/IJIRT175966_PAPER.pdf)
 - [More cluster analysis](https://www.researchgate.net/publication/357727987_Identification_of_Traffic_Accident_Patterns_via_Cluster_Analysis_and_Test_Scenario_Development_for_Autonomous_Vehicles/fulltext/61dcdc17034dda1b9eebd63d/Identification-of-Traffic-Accident-Patterns-via-Cluster-Analysis-and-Test-Scenario-Development-for-Autonomous-Vehicles.pdf)
+
+  
+This data can be split into three main groups. Accident information will include: data and time, location, road type and conditions, weather and lighting, and number of vehicles and casualties. Vehicle information will include type and age, maneuver and direction, and driver age and sex. Casualty information will include who was injured (pedestrian, cyclist, driver, etc.), severity, age, sex, and mode of transport. 
+
+
+This report will focus on grouping conditions such as number of collisions at mini-roundabout, wet conditions, dark or night time, dry conditions, and in an urban setting and where the most serious casualty is reported as a slight injury. These variables and clustering techniques will determine which series of conditions make is so a car accident is more likely to occur. This information will be useful to tell drivers when to be extra careful or to try to avoid driving at all. 
+
 
 
 ## The Data
@@ -51,7 +46,9 @@ Hierarchical clustering is a great starting point because it can group similar d
 ![](../../data_cache/vignettes/unsupervised_classification/dendrogram.html){width="100%" height="600px"}
 
 
-The tree was cut at a height of 3 which makes sense because it will cut off the branches from the main trunk. This is evident by the hscatter plot below where there are 4 groups left.  This is important for Principal Component Analysis (PCA). PCA is a highly useful tool where is an take a large amount of data and take the most important parts. Where the first principal component (PC1) is the direction in which the data points have the most amount of variance. The second principal component (PC2) takes into account the second most variance while still be not correlated with PC1. Since PC2 is uncorrelated to PC1, this means that it is perpendicular. 
+The tree was cut at sensible height which will cut off the branches from the main trunk. This is evident by the hscatter plot below where there are 4 groups left.  This is important for Principal Component Analysis (PCA). 
+
+PCA is a highly useful tool where is an take a large amount of data and take the most important parts. It does this by Where the first principal component (PC1) is the direction in which the data points have the most amount of variance. The second principal component (PC2) takes into account the second most variance while still be not correlated with PC1. Since PC2 is uncorrelated to PC1, this means that it is perpendicular. 
 
 Here is a scatterplot between PC1 and PC2. Where the direction and length of the plot *continue this paragraph when the hscatter plot has been fixed*
 
