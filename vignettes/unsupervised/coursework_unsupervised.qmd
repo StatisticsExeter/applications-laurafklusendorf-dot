@@ -84,17 +84,10 @@ First, you should look at the cluster centriods:
 ![](../../data_cache/vignettes/unsupervised_classification/kcentroids2.html){width="100%" height="600px"}
 
 
-K-means clustering analysis will create it's own PC1 and PC2 values. The scatter plot below deonstrates this. The cluster groupings 
+K-means clustering analysis will create it's own PC1 and PC2 values. The scatter plot below demonstrates this. K-means model's PC1 and PC2 captures 48.5% and 38% of the variance from the original data. Therefore the cumulative variance is 86.5%. This is still a high cumulative variance however it does capture less of the data than the hierarchical clustering Thus, in this case, k-means is less accurate than its hierarchical  counterpart 
 
 ![](../../data_cache/vignettes/unsupervised_classification/kscatter.html){width="100%" height="600px"}
 
-
-
-
-
-##  Additional credit
-
-For additional credit you should consider adding a further unsupervised classification method. Alternatively, you could increase the number of variables used in the clustering.
 
 
 ## Record of AI use for MTHM503 unsupervised coursework
