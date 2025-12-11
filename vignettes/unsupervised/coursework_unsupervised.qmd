@@ -59,7 +59,7 @@ Here is a scatterplot between PC1 and PC2. Where the direction and length of the
 The k-means clustering in this report has grouped the accident cases into 4 (k=4). K-means is extremely good at finding natural groups in unlabeled data and is able to discover patterns within complex datasets. 
 
 
-First, you should look at the cluster centroids:
+First, you should look at the cluster centriods:
 
 
 ![](../../data_cache/vignettes/unsupervised_classification/kcentroids1.html){width="100%" height="600px"}
