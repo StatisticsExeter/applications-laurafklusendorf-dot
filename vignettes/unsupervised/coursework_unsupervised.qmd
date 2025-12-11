@@ -12,13 +12,13 @@ format:
 Car accidents can be caused due a multitude of reasons and some conditions make a crash more likely to occur. This report aims to determine which conditions tend to go hand in hand by applying cluster analysis. Cluster analysis groups accidents with similar circumstances such as weather, lighting, and road type to discover a meaningful pattern. In addition to cluster analysis, principle component analysis (PCA) is used to get a more clear visual of the clusters. By using both cluster analysis and PCA, it can be determined how accident conditions relate to each other and figure out scenarios where accidents are more likely to occur.
 
 ### The Problem
-The data used in this report are recorded by the police in Great Britian. The data set is called "Stats19" and is available at <https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-accidents-safety-data>.  
+The data used in this report are recorded by the police in Great Britan. The data set is called "Stats19" and is available at <https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-accidents-safety-data>.  
   
-This data can be split into three main groups. Accident information will include: data and time, location, road type and conditions, weather and lighting, and number of behicles and casualties. Vehicle information will include type and age, manoeuvre and direction, and driver age and sex. Casualty information will include who was injured (pedestrian, cyclist, driver, etc.), severity, age, sex, and mode of transport. 
+This data can be split into three main groups. Accident information will include: data and time, location, road type and conditions, weather and lighting, and number of vehicles and casualties. Vehicle information will include type and age, maneuver and direction, and driver age and sex. Casualty information will include who was injured (pedestrian, cyclist, driver, etc.), severity, age, sex, and mode of transport. 
 
 These tables are linked via a unique accident index.
 
-This report will focus on grouping conditions such as number of collions at mini-roundabout, wet conditions, dark or night time, dry conditions, and in an urban setting and where the most serious casualty is reported as a slight injury. 
+This report will focus on grouping conditions such as number of collisions at mini-roundabout, wet conditions, dark or night time, dry conditions, and in an urban setting and where the most serious casualty is reported as a slight injury. 
 
 Some previous cluster analysis work has been reported at:
 
