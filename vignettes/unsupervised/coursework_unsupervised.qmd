@@ -27,7 +27,19 @@ This data can be split into three main groups. Accident information will include
 This report will focus on grouping conditions such as number of collisions at mini-roundabout, wet conditions, dark or night time, dry conditions, and in an urban setting and where the most serious casualty is reported as a slight injury. These variables and clustering techniques will determine which series of conditions make is so a car accident is more likely to occur. This information will be useful to tell drivers when to be extra careful or to try to avoid driving at all. 
 
 ### Principal Component Analysis (PCA)
-This report is going into using hierarchical modeling or k-means is a better method for clustering data together. A good way to compare these methods is by using PCA. First, one must understand what PCA is. 
+This report uses PCA for both hierarchical modeling and k-means. Therefore, it is important to have a good foundational understanding of PCA.
+
+Principal Component Analysis (PCA) is a dimension reduction technique that identifies new axes (principal components) which captures the maximum variance in the data set. 
+
+- The first principal component (PC1) is the linear combination of the original variables that explains the largest amount of variance in the dataset.
+
+- The second principal compenent (PC2) is the perpendicular to PC1 and explains the second largest amount of variance. 
+
+The combination of PC1 and PC2 will capture the majority of the variance found in the orginal dataset. This is useful for simplifying and visualizing the data. 
+
+The first part of PCA is to center and scale the data. The data is centered by taking the mean of each variable to get a center point, then that point is translated to the origin of the graph. The original data points are also shifted in reference to this centroid. Therefore even though the data moved, it is the exact same relative to each other. In order to scale the data, 
+
+
 
 ## The Data
 
