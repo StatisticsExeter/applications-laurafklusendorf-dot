@@ -28,8 +28,10 @@ def kmeans(k):
     fig1, fig2 = _plot_centroids(scaled_centers, scaler, df.columns, k)
     outpath1 = base_dir / VIGNETTE_DIR / 'kcentroids1.html'
     outpath2 = base_dir / VIGNETTE_DIR / 'kcentroids2.html'
+    outpath3 = base_dir / VIGNETTE_DIR / 'kvalue.html'
     fig1.write_html(outpath1)
     fig2.write_html(outpath2)
+    fig3.write_html(outpath3)
     df_plot = _pca(df_scaled)
     df_plot['cluster'] = clusters.astype(str)  # convert to string for color grouping
     outpath = base_dir / VIGNETTE_DIR / 'kscatter.html'
@@ -61,4 +63,17 @@ def _plot_centroids(scaled_centers, scaler, colnames, k):    # Melt for grouped 
         barmode='group',
         title='Cluster Centers by Feature (Original Scale)'
     )
-    return fig1, fig2
+    #making an elbow plot to determine what the best k value is
+    values = []
+    k_values = range(1,10)
+    for k in k_values:
+      model = KMeans(n_clusters=k, random_state=42, n_init=10)
+      model.fit(df_)
+    
+    fig3 = px.bar(
+        k_values,
+        x='Number of Clusters (K=_)',
+        y='Variation',
+        title='Variance based on Number of Clusters (k)'
+    )
+    return fig1, fig2, fig3
