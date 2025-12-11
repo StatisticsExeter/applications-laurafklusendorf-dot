@@ -33,11 +33,13 @@ Principal Component Analysis (PCA) is a dimension reduction technique that ident
 
 - The first principal component (PC1) is the linear combination of the original variables that explains the largest amount of variance in the dataset.
 
-- The second principal compenent (PC2) is the perpendicular to PC1 and explains the second largest amount of variance. 
+- The second principal component (PC2) is the perpendicular to PC1 and explains the second largest amount of variance. 
 
-The combination of PC1 and PC2 will capture the majority of the variance found in the orginal dataset. This is useful for simplifying and visualizing the data. 
+The combination of PC1 and PC2 will capture the majority of the variance found in the original dataset. This is useful for simplifying and visualizing the data. 
 
-The first part of PCA is to center and scale the data. The data is centered by taking the mean of each variable to get a center point, then that point is translated to the origin of the graph. The original data points are also shifted in reference to this centroid. Therefore even though the data moved, it is the exact same relative to each other. In order to scale the data, 
+The first part of PCA is to center and scale the data. The data is centered by taking the mean of each variable to get a center point, then that point is translated to the origin of the graph. The original data points are also shifted in reference to this centroid. Therefore even though the data moved, it is the exact same relative to each other. In order to scale the data, a linear line of best fit needs to be calculated Where each data point is projected onto this line. The line's slope is based off how it can maximize the variance of these projects, this slope is also known as PC1. Thus PC2 is the slope of the line that is orthagonal to PC1. Each of these principal components corresponds to an eigenvector of the covariance matrix and the amount of variance explained by that component is it's eigenvalue. 
+
+Since the eigenvector is the directions of each component and the eigenvalue is the magnitude, the proportion of variance can be calculated by the eigenvalue divided by the sum of all eigenvalues across every component. This value multiplied by 100 will give a percentage detailing how much of the original dataset's variance is captured by the model. 
 
 
 
