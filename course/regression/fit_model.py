@@ -9,22 +9,27 @@ from scipy import stats
 VIGNETTE_DIR = Path('data_cache') / 'vignettes' / 'regression'
 
 
-
 def _fit_model(df):
     """Given data frame df containing columns 'shortfall', 'n_rooms', 'age' and
     'local_authority_code'
     Fit a linear mixed model with shortfall as the response variable
     n_rooms and age as fixed predictors
     with local_authority_code as a random effect"""
-    #basic model
-    y_bc, lam = stats.boxcox(df["shortfall"])
-    df = df.copy()
-    df["shortfall_bc"] = y_bc
-    mixed_model = smf.mixedlm("shortfall_bc ~ n_rooms + age",
+    mixed_model = smf.mixedlm("shortfall ~ n_rooms + age",
                               data=df,
                               groups=df["local_authority_code"])
     mixed_model = mixed_model.fit()
     return mixed_model
+
+def _fit_model_bc(df):
+    y_bc, lam = stats.boxcox(df["shortfall"])
+    df = df.copy()
+    df["shortfall_bc"] = y_bc
+    mixed_model_bc = smf.mixedlm("shortfall_bc ~ n_rooms + age",
+                              data=df,
+                              groups=df["local_authority_code"])
+    mixed_model_bc = mixed_model_bc.fit()
+    return mixed_model_bc
 
 
 def _save_model_summary(model, outpath):
@@ -47,10 +52,13 @@ def fit_model():
     base_dir = find_project_root()
     df = pd.read_csv(base_dir / 'data_cache' / 'la_energy.csv')
     results = _fit_model(df)
-    outpath = VIGNETTE_DIR / 'model_fit.txt'
+    results_bc = _fit_model_bc(df)
+    outpath1 = VIGNETTE_DIR / 'model_fit.txt'
+    outpath2 = VIGNETTE_DIR / 'model_fit_bc.txt'
     _random_effects(results).to_csv(base_dir / 'data_cache' / 'models' / 'reffs.csv')
-    _save_model_summary(results, outpath)
-    #making a residual diagonostics model
+    _save_model_summary(results, outpath1)
+    _save_model_summary(results, outpath2)
+    #making a residual diagonostics model for the LMM
     fitted = results.fittedvalues
     residuals = results.resid
     df_new = pd.DataFrame({"Fitted": fitted, "Residuals": residuals})
@@ -60,3 +68,13 @@ def fit_model():
                      title="Residual vs Fitted Values - Mixed Linear Model Regression")
     fig.add_hline(y=0, line_dash="dash", line_color="red")
     fig.write_html(VIGNETTE_DIR / 'residual.html')
+    #making a residual diagonostics model for the BC LMM
+    fitted = results_bc.fittedvalues
+    residuals = results_bc.resid
+    df_new = pd.DataFrame({"Fitted": fitted, "Residuals": residuals})
+    fig = px.scatter(df_new,
+                     x="Fitted",
+                     y="Residuals",
+                     title="Residual vs Fitted Values - Mixed Linear Model Regression")
+    fig.add_hline(y=0, line_dash="dash", line_color="red")
+    fig.write_html(VIGNETTE_DIR / 'residual_bc.html')

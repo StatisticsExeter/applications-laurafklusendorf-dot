@@ -71,6 +71,22 @@ Residual diagnostics is a great visual tool to determine the validity of a model
 
 ![](../../data_cache/vignettes/regression/residual.html){width="100%" height="600px"}
 
+Since the redisdual diagnostics plot looses information at the tails of the data, as seen in the 'U' shape of data point, the fitted or the shortfall values need to be transformed. This can be done with scipy.stats.boxcox() which is a python function that normalizes the data. The new LMM summary is shown below. 
+```{python}
+#| echo: false
+#| eval: true
+#| results: 'asis'
+with open('../../data_cache/vignettes/regression/model_fit_bc.txt') as f:
+    content = f.read()
+    print(content)
+```
+
+Once again, a residual diagnostics plot is generated to have a visual check to ensure that the LMM using boxcox is a better model than before. As seen below, the scatter is much more evenly distributed around the line y=0. This means essential information is not being lost. 
+
+![](../../data_cache/vignettes/regression/residual_bc.html){width="100%" height="600px"}
+
+The residual diagnostics plots already proves that normalizing shortfall makes for a better LMM; however, it can be calculated just by how much better this new model is. This is done with the Akaike Information Criterion (AIC). 
+
 ## The Key Insight
 Since the goal is to rate each local authority's carbon footprint performance, a "caterpillar plot" was produced of the random effects with a confidence interval (CI) of 95%. Where the effect size shows how much higher or lower that local authority is compared to the average between all of them. Where when the effect size is larger than 0, then there are more carbon emissions than average. The random effect estimate or each blue dot is how much on average that local authority diverges from the average between all of them. Therefore the local authorities at the bottom of the graph are doing a better job at reducing the carbon footprint within their jurisdiction.
 
