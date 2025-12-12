@@ -57,7 +57,7 @@ def fit_model():
     outpath2 = VIGNETTE_DIR / 'model_fit_bc.txt'
     _random_effects(results).to_csv(base_dir / 'data_cache' / 'models' / 'reffs.csv')
     _save_model_summary(results, outpath1)
-    _save_model_summary(results, outpath2)
+    _save_model_summary(results_bc, outpath2)
     #making a residual diagonostics model for the LMM
     fitted = results.fittedvalues
     residuals = results.resid
