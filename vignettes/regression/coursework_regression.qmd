@@ -43,7 +43,7 @@ Where
 
 ## The Data and Exploratory Data Analysis
 
-The box plot gives a surface level introduction to how carbon emissions vary based on when the home was built. Where the old are homes built before 1930 and the new is after. The shortfall is the amount of carbon emissions when the data is normalized by room count because of course larger houses will take more energy to warm up. Below is a boxplot of the shortfall between old and new homes. It makes sense that older homes have a larger variation because that would be dependent on how well the homes where maintained. Homes built before 1930 prouce more carbon emissions than homes built after 1930. 
+The box plot gives a surface level introduction to how carbon emissions vary based on when the home was built. Where the old are homes built before 1930 and the new is after. The shortfall is the amount of carbon emissions when the data is normalized by room count and when the home was built because of course larger houses will take more energy to warm up and older homes are made differently that they are now. Below is a box plot of the shortfall between old and new homes. It makes sense that older homes have a larger variation because that would be dependent on how well the homes where maintained. Homes built before 1930 produce more carbon emissions than homes built after 1930. 
 
 ![](../../data_cache/vignettes/regression/boxplot_age.html){width="100%" height="600px"}
 
@@ -67,11 +67,11 @@ with open('../../data_cache/vignettes/regression/model_fit.txt') as f:
     print(content)
 ```
 
-Residual diagnostics is a great visual tool to determine the validity of a model. 
+Residual diagnostics is a great visual tool to determine the validity of a model.  The peculiar 'U' shape of the residual diagnostics plot shows that the model is best suited for home with a more average number of rooms. The tail ends of the model do not provide an accurate understanding of those homes and will not be able to accurately depict if those homes are reducing their carbon footprint or not. This means that the model needs to be more complex and to transform that 'shortfall' term to make sure that the tails are able to be described.  This can be done with scipy.stats.boxcox() which is a python function that normalizes the data. The new LMM summary is shown below. 
 
 ![](../../data_cache/vignettes/regression/residual.html){width="100%" height="600px"}
 
-Since the redisdual diagnostics plot looses information at the tails of the data, as seen in the 'U' shape of data point, the fitted or the shortfall values need to be transformed. This can be done with scipy.stats.boxcox() which is a python function that normalizes the data. The new LMM summary is shown below. 
+
 ```{python}
 #| echo: false
 #| eval: true
@@ -92,17 +92,13 @@ Since the goal is to rate each local authority's carbon footprint performance, a
 ![](../../data_cache/vignettes/regression/caterpillar.html){width="100%" height="600px"}
 
 
-##  Residual Diagnostics
-
-
-
 ## Record of AI use for MTHM503 Regression coursework
 
 | **Date**       | **AI tool used** | **Purpose**                                | **Prompt**                                 | **Hyperlink to output (where possible)** | **Section of work used for** |
 |----------------|------------------|--------------------------------------------|--------------------------------------------|------------------------------------------|-------------------------------|
 | E.g. 15/07/2025| MS Copilot       | To help create an organised essay structure| ‘Generate ideas for structuring an essay on...’ | [insert link]                          | introduction                  |
-|                |                  |                                            |                                            |                                          |                               |
-|                |                  |                                            |                                            |                                          |                               |
+|   12/12/2025    |    MS Copilot    |  Determine if a 'U' shaped residual  diagnostic plot is valid     |  'My diagnostic plot is a 'U' shape, does this mean that the model is unuseable?'       |                                          |           The Model                    |
+|   12/12/2025       | MS Copilot     |   To get a better understanding on how boxcox works          |  'Give me a few bullet points on how boxcox works and when to use it'    |                                          |        The Model                    |
 |                |                  |                                            |                                            |                                          |                               |
 |                |                  |                                            |                                            |                                          |                               |
 |                |                  |                                            |                                            |                                          |                               |
