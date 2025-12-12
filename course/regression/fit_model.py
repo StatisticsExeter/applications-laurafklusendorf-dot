@@ -59,4 +59,4 @@ def fit_model():
                      y="Residuals",
                      title="Residual vs Fitted Values - Mixed Linear Model Regression")
     fig.add_hline(y=0, line_dash="dash", line_color="red")
-    fig.write_html(VIGNETTE_DIR / 'residual_mixed.html')
+    fig.write_html(VIGNETTE_DIR / 'residual.html')

@@ -43,19 +43,19 @@ Where
 
 ## The Data and Exploratory Data Analysis
 
-The box plot gives a surface level introduction to how carbon emissions vary based on when the home was built. Where the old are homes built before 1930 and the new is after. The shortfall is the amount of carbon emissions when the data is normalized by room count because of course larger houses will take more energy to warm up.
+The box plot gives a surface level introduction to how carbon emissions vary based on when the home was built. Where the old are homes built before 1930 and the new is after. The shortfall is the amount of carbon emissions when the data is normalized by room count because of course larger houses will take more energy to warm up. Below is a boxplot of the shortfall between old and new homes. It makes sense that older homes have a larger variation because that would be dependent on how well the homes where maintained. Homes built before 1930 prouce more carbon emissions than homes built after 1930. 
 
 ![](../../data_cache/vignettes/regression/boxplot_age.html){width="100%" height="600px"}
 
 
-The box plot below describes the shortfall or the degree of carbon emissions used for a home to be heated based on the number of rooms instead of by age. It makes sense that the more rooms a house has and thus the larger the house, that it will take more energy to keep warm. It is interesting that it keeps moderately level and then increases passed six rooms. 
+The box plot below describes the shortfall or the degree of carbon emissions used for a home to be heated based on the number of rooms instead of by age. It makes sense that the more rooms a house has and thus the larger the house, that it will take more energy to keep warm. This chart shows that the number of rooms and the carbon footprint that goes with heating them is fairly linear.
 
 ![](../../data_cache/vignettes/regression/boxplot_rooms.html){width="100%" height="600px"}
 
 
 ## The Model
 
-Below is a the model's summary of the fixed effects produced. 
+Below is a the model's summary of the fixed effects produced. Note that the model below is a Linear Mixed Model (LMM) where it assumes normality. Therefore, for this model, scipy.stats.boxcox() was used on the variable "shortfall", to transform that data to ensure that it fits this assumption. 
 
 
 ```{python}
@@ -67,9 +67,9 @@ with open('../../data_cache/vignettes/regression/model_fit.txt') as f:
     print(content)
 ```
 
-Residual diagnostics is a great visual tool to determine the validity of a model. Below is 
+Residual diagnostics is a great visual tool to determine the validity of a model. 
 
-![](../../data_cache/vignettes/regression/residual_mixed.html){width="100%" height="600px"}
+![](../../data_cache/vignettes/regression/residual.html){width="100%" height="600px"}
 
 ## The Key Insight
 Since the goal is to rate each local authority's carbon footprint performance, a "caterpillar plot" was produced of the random effects with a confidence interval (CI) of 95%. Where the effect size shows how much higher or lower that local authority is compared to the average between all of them. Where when the effect size is larger than 0, then there are more carbon emissions than average. The random effect estimate or each blue dot is how much on average that local authority diverges from the average between all of them. Therefore the local authorities at the bottom of the graph are doing a better job at reducing the carbon footprint within their jurisdiction.
