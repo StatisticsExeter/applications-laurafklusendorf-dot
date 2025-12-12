@@ -96,8 +96,8 @@ Precision relates to how many positives the model was able to correctly identify
 
 The confusion matrices below allow for a better visualization of how well each model works. Where TP is 'true positive', FP is 'false positive', FN is 'false negative', and TN is 'true negative'. This has a much more clear display that QDA has three times greater number of false positives than LDA. On the other hand, LDA has double the amount of false negatives than QDA has. These two models have their pros and cons however with further analysis, it can be determined which model is best for the task at hand.
 
-![](../../data_cache/vignettes/supervised_classification/confusion_matrix_LDA.html){width="100%" height="300px"}
-![](../../data_cache/vignettes/supervised_classification/confusion_matrix_QDA.html){width="100%" height="300px"}
+![](../../data_cache/vignettes/supervised_classification/cm_LDA.html){width="100%" height="300px"}
+![](../../data_cache/vignettes/supervised_classification/cm_QDA.html){width="100%" height="300px"}
 
 
 ## ROC curve and AUC for two simple classifiers

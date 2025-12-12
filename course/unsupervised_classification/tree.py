@@ -6,6 +6,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from pathlib import Path
 from course.utils import find_project_root
+import numpy as np
 
 VIGNETTE_DIR = Path('data_cache') / 'vignettes' / 'unsupervised_classification'
 
@@ -72,8 +73,9 @@ def _scatter_clusters(df):
       (the first two principal component projections and the cluster groups)
     return a plotly express scatterplot of PC1 versus PC2
     with marks to denote cluster group membership"""
+    numeric_df = df.select_dtypes(include=[np.number])
     pca = PCA(n_components=2)
-    values = pca.fit_transform(df)
+    values = pca.fit_transform(numeric_df)
     data_df = pd.DataFrame(data=values, columns=['PC1', 'PC2'])
     var_ratio = pca.explained_variance_ratio_
     fig = px.scatter(df,
