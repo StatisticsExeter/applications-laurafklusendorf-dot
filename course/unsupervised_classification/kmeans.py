@@ -26,20 +26,20 @@ def kmeans(k):
     clusters = kmeans.labels_
     scaled_centers = kmeans.cluster_centers_
     fig1, fig2 = _plot_centroids(scaled_centers, scaler, df.columns, k)
-    
-    #making an elbow plot to determine what the best k value is
+
+    """making an elbow plot to determine what the best k value is"""
     inertias = []
-    k_values = range(1,10)
+    k_values = range(1, 10)
     for k in k_values:
-      model = KMeans(n_clusters=k, random_state=42, n_init=10)
-      model.fit(df_scaled)
-      inertias.append(model.inertia_)
+        model = KMeans(n_clusters=k, random_state=42, n_init=10)
+        model.fit(df_scaled)
+        inertias.append(model.inertia_)
     fig3 = px.line(
         x=list(k_values),
         y=inertias,
         markers=True,
         title='Variance based on Number of Clusters (k)',
-        labels={'x':'Number of Clusters (k)', 'y':'Variance within Cluster'}
+        labels={'x': 'Number of Clusters (k)', 'y': 'Variance within Cluster'}
     )
     outpath1 = base_dir / VIGNETTE_DIR / 'kcentroids1.html'
     outpath2 = base_dir / VIGNETTE_DIR / 'kcentroids2.html'
@@ -55,7 +55,7 @@ def kmeans(k):
 
 
 def _plot_centroids(scaled_centers, scaler, colnames, k):    # Melt for grouped bar plot
-    #kcentroids 1
+    """kcentroids 1"""
     original_centers = scaler.inverse_transform(scaled_centers)
     centers_df = pd.DataFrame(original_centers, columns=colnames).iloc[:, [0]]
     centers_df['cluster'] = [f'Cluster {i}' for i in range(k)]
@@ -68,7 +68,7 @@ def _plot_centroids(scaled_centers, scaler, colnames, k):    # Melt for grouped 
         barmode='group',
         title='Cluster Centers by Feature (Original Scale)'
     )
-    #kcentroids 2
+    """kcentroids 2"""
     centers_df = pd.DataFrame(original_centers, columns=colnames).iloc[:, 1:]
     centers_df['cluster'] = [f'Cluster {i}' for i in range(k)]
     centers_melted = centers_df.melt(id_vars='cluster', var_name='Feature', value_name='Value')

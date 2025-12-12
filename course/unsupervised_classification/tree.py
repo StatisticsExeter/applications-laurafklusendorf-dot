@@ -76,7 +76,10 @@ def _scatter_clusters(df):
     numeric_df = df.select_dtypes(include=[np.number])
     pca = PCA(n_components=2)
     values = pca.fit_transform(numeric_df)
+
     data_df = pd.DataFrame(data=values, columns=['PC1', 'PC2'])
+    data_df['cluster'] = df['cluster'].values
+
     var_ratio = pca.explained_variance_ratio_
     fig = px.scatter(df,
                      x="PC1",
@@ -87,5 +90,3 @@ def _scatter_clusters(df):
     fig.update_layout(xaxis_title=f"PC1 ({var_ratio[0]*100:.1f}% variance)",
                       yaxis_title=f"PC2 ({var_ratio[1]*100:.1f}% variance)")
     return fig
-  
-  
