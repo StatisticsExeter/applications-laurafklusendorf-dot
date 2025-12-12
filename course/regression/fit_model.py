@@ -21,13 +21,14 @@ def _fit_model(df):
     mixed_model = mixed_model.fit()
     return mixed_model
 
+
 def _fit_model_bc(df):
     y_bc, lam = stats.boxcox(df["shortfall"])
     df = df.copy()
     df["shortfall_bc"] = y_bc
     mixed_model_bc = smf.mixedlm("shortfall_bc ~ n_rooms + age",
-                              data=df,
-                              groups=df["local_authority_code"])
+                                 data=df,
+                                 groups=df["local_authority_code"])
     mixed_model_bc = mixed_model_bc.fit()
     return mixed_model_bc
 
@@ -58,7 +59,7 @@ def fit_model():
     _random_effects(results).to_csv(base_dir / 'data_cache' / 'models' / 'reffs.csv')
     _save_model_summary(results, outpath1)
     _save_model_summary(results_bc, outpath2)
-    #making a residual diagonostics model for the LMM
+    """making a residual diagonostics model for the LMM"""
     fitted = results.fittedvalues
     residuals = results.resid
     df_new = pd.DataFrame({"Fitted": fitted, "Residuals": residuals})
@@ -68,7 +69,7 @@ def fit_model():
                      title="Residual vs Fitted Values - Mixed Linear Model Regression")
     fig.add_hline(y=0, line_dash="dash", line_color="red")
     fig.write_html(VIGNETTE_DIR / 'residual.html')
-    #making a residual diagonostics model for the BC LMM
+    """making a residual diagonostics model for the BC LMM"""
     fitted = results_bc.fittedvalues
     residuals = results_bc.resid
     df_new = pd.DataFrame({"Fitted": fitted, "Residuals": residuals})
