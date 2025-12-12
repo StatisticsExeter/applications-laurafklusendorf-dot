@@ -9,7 +9,7 @@ format:
 ## Introduction
 
 ### The Task
-Car accidents can be caused due a multitude of reasons and some conditions make a crash more likely to occur. This report aims to determine which conditions tend to go hand in hand by applying cluster analysis. Cluster analysis groups accidents with similar circumstances such as weather, lighting, and road type to discover a meaningful pattern. In addition to cluster analysis, principle component analysis (PCA) is used to get a more clear visual of the clusters. By using both cluster analysis and PCA, it can be determined how accident conditions relate to each other and figure out scenarios where accidents are more likely to occur. This report will compare hierarchical clustering which determines clustering based off of what looks more similar to k-means which will form however many groups it is told to make.
+Car accidents can be caused due a multitude of reasons and some conditions make a crash more likely to occur. This report aims to determine which conditions naturally occur together by applying cluster analysis. Cluster analysis groups accidents with similar circumstances such as weather, lighting, and road type to discover a meaningful pattern. In addition to cluster analysis, principle component analysis (PCA) is used to get a more clear visual of the clusters. By using both cluster analysis and PCA, it can be determined how accident conditions relate to each other and figure out scenarios where accidents are more likely to occur. This report will compare hierarchical clustering which determines clustering based off of what looks more similar to k-means which will form however many groups it is told to make.
 
 
 ### The Problem
@@ -28,6 +28,7 @@ This report will focus on grouping conditions such as number of collisions at mi
 
 ### Principal Component Analysis (PCA)
 This report uses PCA for both hierarchical modeling and k-means. Therefore, it is important to have a good foundational understanding of PCA.
+
 
 Principal Component Analysis (PCA) is a dimension reduction technique that identifies new axes (principal components) which captures the maximum variance in the data set. 
 
@@ -80,13 +81,13 @@ K-means clustering can be broken down to a number of steps. Step 1 is to determi
 
 The k-means clustering in this report has grouped the accident cases into 4 (k=4). The plot does not show a clear 'elbow' however at k=4, the slope is less dramatic than before then, in addition, it is not wise to over fit the data so having 4 clusters is a safe choice. 
 
-K-means is extremely good at finding natural groups in unlabeled data and is able to discover patterns within complex datasets. First, looking at the centroids will provide insights into the groupings. Below is the first centroids barcart where it can be clearly seen that cluster 3 has more points in its group than any other cluster. This shows that there is a driving condition that see far more car accidents than any other grouping. 
+K-means is extremely good at finding natural groups in unlabeled data and is able to discover patterns within complex datasets. First, looking at the centroids will provide insights into the groupings. Below is the first centroids bar cart where it can be clearly seen that cluster 3 has more points in its group than any other cluster. This shows that there is a driving condition that see far more car accidents than any other grouping. 
 
 
 ![](../../data_cache/vignettes/unsupervised_classification/kcentroids1.html){width="100%" height="600px"}
 
 
-In addition, there is a second centroids barchart that further breaks down the groupings based off of various variables. This is where the groupings can be better compared since the y-axis has be normalized. It can be seen that cluster 3 prodominately pertains to minor accidents that took place in an urban setting. Where as cluster 2 also pertains to more main accidents but not in an urban setting.
+In addition, there is a second centroids bar chart that further breaks down the groupings based off of various variables. This is where the groupings can be better compared since the y-axis has be normalized. It can be seen that cluster 3 predominately pertains to minor accidents that took place in an urban setting. Where as cluster 2 also pertains to more main accidents but not in an urban setting.
 
 ![](../../data_cache/vignettes/unsupervised_classification/kcentroids2.html){width="100%" height="600px"}
 
@@ -103,7 +104,7 @@ K-means clustering analysis will create it's own PC1 and PC2 values. The scatter
 | **Date**       | **AI tool used** | **Purpose**                                | **Prompt**                                 | **Hyperlink to output (where possible)** | **Section of work used for** |
 |----------------|------------------|--------------------------------------------|--------------------------------------------|------------------------------------------|-------------------------------|
 | E.g. 15/07/2025| MS Copilot       | To help create an organised essay structure| ‘Generate ideas for structuring an essay on...’ | [insert link]                          | introduction                  |
-|                |                  |                                            |                                            |                                          |                               |
+|   12/12/2025  |  MS Copilot      |  To help fix the code to make the plot for evaluating a good 'k' value |  'how to fix the error message "KMeans object has no attribute 'inertia_'"'                                          |                     |                         k-means clustering         |
 |                |                  |                                            |                                            |                                          |                               |
 |                |                  |                                            |                                            |                                          |                               |
 |                |                  |                                            |                                            |                                          |                               |

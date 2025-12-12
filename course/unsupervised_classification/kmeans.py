@@ -31,7 +31,7 @@ def kmeans(k):
     inertias = []
     k_values = range(1, 10)
     for k in k_values:
-        model = KMeans(n_clusters=k, random_state=42, n_init=10)
+        model = KMeans(n_clusters=k, random_state=42)
         model.fit(df_scaled)
         inertias.append(model.inertia_)
     fig3 = px.line(
