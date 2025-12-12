@@ -65,7 +65,7 @@ The scatter plot should a linear trend where the more energy efficient the home 
 
 ![](../../data_cache/vignettes/supervised_classification/boxplot_matrix.html){width="100%" height="600px"}
 
-The three boxplots above show the current energy efficiency, current environmental impact and the current amount of CO~2~ emissions of homes built before and after 1930; Where even though on average the modern homes have more energy efficiency they have a higher environmental impact even though the average amount of carbon emissions coming from the homes are relatively similar. It is also interesting that the older homes have a large variance of carbon emissions. 
+The three box plots above show the current energy efficiency, current environmental impact and the current amount of CO~2~ emissions of homes built before and after 1930; Where even though on average the modern homes have more energy efficiency they have a higher environmental impact even though the average amount of carbon emissions coming from the homes are relatively similar. It is also interesting that the older homes have a large variance of carbon emissions. 
 
 ## Fitting LDA and QDA classifiers
 
@@ -93,7 +93,7 @@ print(df.round(3).to_markdown(index=False))
 
 Precision relates to how many positives the model was able to correctly identify. This does not take into account the number of false positives. Where LDA has a more even precision between positively identifying homes built before and after 1930. QDA has a harder time identifying correctly more modern homes but is much better at determining older homes. This means that the QDA model is more likely to classify a home has being older.  
 
-
+### LDA and QDA Comparison
 The confusion matrices below allow for a better visualization of how well each model works. Where TP is 'true positive', FP is 'false positive', FN is 'false negative', and TN is 'true negative'. This has a much more clear display that QDA has three times greater number of false positives than LDA. On the other hand, LDA has double the amount of false negatives than QDA has. These two models have their pros and cons however with further analysis, it can be determined which model is best for the task at hand.
 
 ![](../../data_cache/vignettes/supervised_classification/cm_LDA.html){width="100%" height="300px"}
@@ -118,7 +118,7 @@ Here it can be seen that the performance of the LDA classifier has an AUC of 0.8
 |----------------|------------------|--------------------------------------------|--------------------------------------------|------------------------------------------|-------------------------------|
 | E.g. 15/07/2025| MS Copilot       | To help create an organised essay structure| ‘Generate ideas for structuring an essay on...’ | [insert link]                          | introduction                  |
 |                |                  |                                            |                                            |                                          |                               |
-|10/12/2025      |MS Copilot      | Help formatting a confusion matrix for LDA and QDA       |  'How to add lables and format a binary confusion matrix for LDA in python'                                          |                                          |                               |
+|10/12/2025      |MS Copilot      | Help formatting a confusion matrix for LDA and QDA       |  'How to add lables and format a binary confusion matrix for LDA in python'                                          |                                          |         LDA and QDA Comparison                      |
 |                |                  |                                            |                                            |                                          |                               |
 |                |                  |                                            |                                            |                                          |                               |
 |                |                  |                                            |                                            |                                          |                               |
